@@ -14,16 +14,21 @@
             if(isEmployee())
                 $mainPage = $PATH_EMPLOYEE;
             if(isStudent())
-                $mainPage = $PATH_STUDENT
-;
+                $mainPage = $PATH_STUDENT;
+            if(isPatient())
+                $mainPage = $PATH_PATIENT;
+            if(isDoctor())
+                $mainPage = $PATH_DOCTOR;
+                if(isNurse())
+                $mainPage = $PATH_NURSE;
          ?>
         <div class="avatar avatar-lg">
             <img class="avatar-img img-fluid" style="min-width: 32px; min-height: 32px;"
-                src="<?php echo $PATH_SERVER ?>assets/img/favicon.png" />
+                src="<?php echo $PATH_SERVER ?>assets/img/logo.jpeg" />
         </div>
         <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="<?php echo $mainPage; ?>">
             <!-- <img class="img-fluid" src="<?php //echo $PATH_SERVER ?>assets/img/favicon.png" /> -->
-            <?php echo lang("Bayda Library");?>
+            <?php echo lang("Home Doctor");?>
         </a>
         <!-- Navbar Search Input-->
         <!-- * * Note: * * Visible only on and above the lg breakpoint-->
@@ -192,6 +197,30 @@
                             <div class="nav-link-icon"><i class="fa fa-home fa-lg"></i>
                             </div>
                             <?php echo lang("Home");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_ADMIN_APPOINTMENT; ?>">
+                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
+                            <?php echo lang("Appointments");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_ADMIN_DOCTOR; ?>">
+                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
+                            <?php echo lang("Doctors");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_ADMIN_MEDICINE; ?>">
+                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
+                            <?php echo lang("Medicines");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_ADMIN_NURSE; ?>">
+                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
+                            <?php echo lang("Nurses");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_ADMIN_PATIENT; ?>">
+                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
+                            <?php echo lang("Patients");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_ADMIN_PAYMENT; ?>">
+                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
+                            <?php echo lang("Payments");?>
                         </a>
                         <a class="nav-link" href="<?php echo $PATH_ADMIN_AUTHOR; ?>">
                             <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
@@ -365,6 +394,10 @@
                         <a class="nav-link" href="<?php echo $PATH_SERVER;?>section_list.php">
                             <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
                             <?php echo lang("Sections");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>signin.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
+                            <?php echo lang("Sign in");?>
                         </a>
                         <?php if(!isLogin()) {?>
                         <a class="nav-link" href="<?php echo $PATH_SERVER; ?>login.php">
