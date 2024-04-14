@@ -1,0 +1,4 @@
+"No Employee found with this data" : "No Employee found with this data",
+"Bayda Library" : "Bayda Library",
+"Welcome to Bayda Library" : "Welcome to Bayda Library",
+"Copyright © Bayda Library 2023" : "Copyright © Bayda Library 2023",
