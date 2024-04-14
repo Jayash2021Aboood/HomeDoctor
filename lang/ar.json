@@ -1,5 +1,5 @@
 {
-"welcome": "مرحبا بكم في موقع مكتبة جامعة البيضاء",
+"welcome": "مرحبا بكم في موقع مكتبة هوم دكتور",
 "Home": "الرئيسية",
 "Admins": "المدراء",
 "Employees": "الموظفين",
@@ -17,7 +17,7 @@
 "English" : "الانجليزية",
 "Choose Language" : "اختار اللغة",
 "Download" : "تحميل",
-"Bayda Library" : "مكتبة البيضاء",
+"Home Doctor" : "هوم دكتور",
 "Search for..." : "بحث عن ...",
 "FAQ" : "الاسئلة الاكثر تكرار",
 "About Us" : "من نحن",
@@ -228,7 +228,7 @@
 "Student Deleted successfuly!" : "تم حذف الطالب بنجاح",
 "this student email is exist try to use another email" : "هذا الايميل موجود مسبقا قم باستخدام ايميل اخر",
 "this employee email is exist try to use another email" : "هذا الايميل موجود مسبقا قم باستخدام ايميل اخر",
-"Welcome to Bayda Library" : "مرحبا بك في مكتبة البيضاء",
+"Welcome to Home Doctor" : "مرحبا بك في هوم دكتور",
 "A sea of science and knowledge" : "بحر من العلم والمعرفة",
 "Collection contain more than 50,000 Books" : "تجميعة تضم اكثر من 50,000 كتاب",
 "see more" : "انظر المزيد",
@@ -237,6 +237,7 @@
 "Display Details" : "عرض التفاصيل",
 "My Profile" : "بروفايلي",
 "Fast Access" : "وصول سريع",
-"Copyright © Bayda Library 2023" : "جميع الحقوق محفوظة لجامعة البيضاء © 2023",
-"Read more" : "قراءة المزيد"   
+"Copyright © Home Doctor 2023" : "جميع الحقوق محفوظة لهوم دكتور © 2023",
+"Read more" : "قراءة المزيد",
+"No Employee found with this data" : "No Employee found with this data"
 }
