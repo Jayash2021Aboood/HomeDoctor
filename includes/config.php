@@ -1,7 +1,7 @@
 <?php
 	$localhost = "localhost";
 	$DBusername = "root";
-	$dbname = "bayda_library";
+	$dbname = "homedoctor";
 	$pwd="";
 
 	$mysqlilink = @mysqli_connect($localhost,$DBusername,$pwd)or die('<center><div>wrong in connect with server</div>'.mysqli_connect_error()."</center>");
@@ -16,8 +16,8 @@
 	//  ====================== =========== ============================
 
 	// HTTP
-	// define('HTTP_SERVER', 'http://localhost/BaydaLibrary/admin/');
-	$PATH_SERVER 			= 'http://localhost/BaydaLibrary/';
+	// define('HTTP_SERVER', 'http://localhost/HomeDoctor/admin/');
+	$PATH_SERVER 			= 'http://localhost/HomeDoctor/';
 	$PATH_PHOTOES 			= $PATH_SERVER . 'photoes/';
 	$PATH_ATTACHMENTS 		= $PATH_SERVER . 'attachments/';
 
@@ -25,6 +25,9 @@
 	// $PATH_CUSTOMER 			= $PATH_SERVER . 'customer/';
 	$PATH_STUDENT 			= $PATH_SERVER . 'student/';
 	$PATH_EMPLOYEE 			= $PATH_SERVER . 'employee/';
+	$PATH_PATIENT 			= $PATH_SERVER . 'patient/';
+	$PATH_DOCTOR 			= $PATH_SERVER . 'doctor/';
+	$PATH_NURSE 			= $PATH_SERVER . 'nurse/';
 
 	$PATH_EMPLOYEE_AUTHOR = $PATH_EMPLOYEE . 'author/';
 	$PATH_EMPLOYEE_BOOK = $PATH_EMPLOYEE . 'book/';
@@ -56,6 +59,13 @@
 	$PATH_ADMIN_SERVICE = $PATH_ADMIN . 'service/';
 	$PATH_ADMIN_SERVICE_TYPE = $PATH_ADMIN . 'service_type/';
 
+	$PATH_ADMIN_APPOINTMENT = $PATH_ADMIN . 'appointment/';
+	$PATH_ADMIN_DOCTOR = $PATH_ADMIN . 'doctor/';
+	$PATH_ADMIN_NURSE = $PATH_ADMIN . 'nurse/';
+	$PATH_ADMIN_MEDICINE = $PATH_ADMIN . 'medicine/';
+	$PATH_ADMIN_PATIENT = $PATH_ADMIN . 'patient/';
+	$PATH_ADMIN_PAYMENT = $PATH_ADMIN . 'payment/';
+
 	$PATH_ADMIN_AUTHOR = $PATH_ADMIN . 'author/';
 	$PATH_ADMIN_BOOK = $PATH_ADMIN . 'book/';
 	$PATH_ADMIN_COLLEGE = $PATH_ADMIN . 'college/';
@@ -79,14 +89,14 @@
 	
 
 	// DIR
-	define('DIR_APPLICATION', 'C:/xampp/htdocs/BaydaLibrary/');
-	define('DIR_ADMIN', 'C:/xampp/htdocs/BaydaLibrary/admin/');
-	define('DIR_ADMIN_INCLUDES', 'C:/xampp/htdocs/BaydaLibrary/admin/includes/');
-	define('DIR_ADMIN_TEMPLATE', 'C:/xampp/htdocs/BaydaLibrary/admin/template/');
-	define('DIR_ADMIN_PHOTOES', 'C:/xampp/htdocs/BaydaLibrary/admin/photoes/');
-	define('DIR_PHOTOES', 'C:/xampp/htdocs/BaydaLibrary/photoes/');
-	define('DIR_LANG', 'C:/xampp/htdocs/BaydaLibrary/lang/');
-	define('DIR_ATTACHMENTS', 'C:/xampp/htdocs/BaydaLibrary/attachments/');
+	define('DIR_APPLICATION', 'C:/xampp/htdocs/HomeDoctor/');
+	define('DIR_ADMIN', 'C:/xampp/htdocs/HomeDoctor/admin/');
+	define('DIR_ADMIN_INCLUDES', 'C:/xampp/htdocs/HomeDoctor/admin/includes/');
+	define('DIR_ADMIN_TEMPLATE', 'C:/xampp/htdocs/HomeDoctor/admin/template/');
+	define('DIR_ADMIN_PHOTOES', 'C:/xampp/htdocs/HomeDoctor/admin/photoes/');
+	define('DIR_PHOTOES', 'C:/xampp/htdocs/HomeDoctor/photoes/');
+	define('DIR_LANG', 'C:/xampp/htdocs/HomeDoctor/lang/');
+	define('DIR_ATTACHMENTS', 'C:/xampp/htdocs/HomeDoctor/attachments/');
 
 
 
@@ -112,7 +122,7 @@
 	}
 
 
-  function checkAdminSession($path = "http://localhost/BaydaLibrary/" , $page = "login.php")
+  function checkAdminSession($path = "http://localhost/HomeDoctor/" , $page = "login.php")
   {
             if (!isset($_SESSION['user']))
             {
@@ -128,7 +138,7 @@
 			}
   }
 
-  function checkEmployeeSession($path = "http://localhost/BaydaLibrary/" , $page = "login.php")
+  function checkEmployeeSession($path = "http://localhost/HomeDoctor/" , $page = "login.php")
   {
             if (!isset($_SESSION['user']))
             {
@@ -144,7 +154,7 @@
 			}
   }
 
-  function checkStudentSession($path = "http://localhost/BaydaLibrary/" , $page = "login.php")
+  function checkStudentSession($path = "http://localhost/HomeDoctor/" , $page = "login.php")
   {
             if (!isset($_SESSION['user']))
             {
@@ -160,13 +170,67 @@
 			}
   }
 
+  function checkPatientSession($path = "http://localhost/HomeDoctor/" , $page = "login.php")
+  {
+            if (!isset($_SESSION['user']))
+            {
+				header('Location:'. $path . $page);
+            }
+			if (!(isset($_SESSION['userType'])))
+			{
+				header('Location:'. $path . $page);
+			} 
+			if($_SESSION['userType'] != 'p')
+			{
+				header('Location:'. $path . $page);
+			}
+  }
+
+  function checkDoctorSession($path = "http://localhost/HomeDoctor/" , $page = "login.php")
+  {
+            if (!isset($_SESSION['user']))
+            {
+				header('Location:'. $path . $page);
+            }
+			if (!(isset($_SESSION['userType'])))
+			{
+				header('Location:'. $path . $page);
+			} 
+			if($_SESSION['userType'] != 'd')
+			{
+				header('Location:'. $path . $page);
+			}
+  }
+
+  function checkNurseSession($path = "http://localhost/HomeDoctor/" , $page = "login.php")
+  {
+            if (!isset($_SESSION['user']))
+            {
+				header('Location:'. $path . $page);
+            }
+			if (!(isset($_SESSION['userType'])))
+			{
+				header('Location:'. $path . $page);
+			} 
+			if($_SESSION['userType'] != 'n')
+			{
+				header('Location:'. $path . $page);
+			}
+  }
+
   function isLogin()
   {
 	if(isset($_SESSION['user']))
 	{
 		if(isset($_SESSION['userType']))
 		{
-			if($_SESSION['userType'] == 'a' || $_SESSION['userType'] == 's' || $_SESSION['userType'] == 'e')
+			if($_SESSION['userType'] == 'a' ||
+			   $_SESSION['userType'] == 's' || 
+			   $_SESSION['userType'] == 'e' ||
+			   $_SESSION['userType'] == 'p' ||
+			   $_SESSION['userType'] == 'd' ||
+			   $_SESSION['userType'] == 'n' 
+			   )
 			{
 				return true;
 			}
@@ -192,9 +256,12 @@
   function isEmployee() { if(getLoginType() == 'e') return true; }
 //   function isCustomer() { if(getLoginType() == 'c') return true; }
   function isStudent() { if(getLoginType() == 's') return true; }
+  function isPatient() { if(getLoginType() == 'p') return true; }
+  function isDoctor() { if(getLoginType() == 'd') return true; }
+  function isNurse() { if(getLoginType() == 'n') return true; }
   function getLoginEmail() { return $_SESSION['user'] ;}
 
-//   function checkAdminSession($path = "http://localhost/BaydaLibrary/" , $page = "login.php")
+//   function checkAdminSession($path = "http://localhost/HomeDoctor/" , $page = "login.php")
 //   {
 // 	// global $PATH_ADMIN;
 //     // if(isset($loginRequire))

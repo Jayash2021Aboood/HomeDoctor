@@ -22,6 +22,21 @@ if (isset($_SESSION['user']))
             header('Location: student/index.php');
             exit();
         }
+        else if($_SESSION['userType'] == 'p')
+        {
+            header('Location: patient/index.php');
+            exit();
+        }
+        else if($_SESSION['userType'] == 'd')
+        {
+            header('Location: doctor/index.php');
+            exit();
+        }
+        else if($_SESSION['userType'] == 'n')
+        {
+            header('Location: nurse/index.php');
+            exit();
+        }
     }
     header('Location: index.php');
     exit();
@@ -138,6 +153,64 @@ if (isset($_SESSION['user']))
                 $errors[] = lang("No Student found with this data");
             }
         }
+        else if($userType == 'p')
+        {
+            $patients = select("select * from patient where email like '$email' and password like '$password';");
+            if(count($patients) > 0)
+            {
+                    $_SESSION["userID"] = $patients[0]['id'];
+                    $_SESSION["user"] = $email;
+                    $_SESSION["userType"] = 'p';
+                    $_SESSION['success'] = lang("Welcome ") . $patients[0]['name'] ;
+                    header('Location: patient/index.php');
+                    exit();
+            }
+            else
+            {
+                $_SESSION["message"] = lang("No Patient found with this data");
+                $_SESSION["fail"] = lang("No Patient found with this data");
+                $errors[] = lang("No Patient found with this data");
+            }
+        }
+        else if($userType == 'd')
+        {
+            $doctors = select("select * from doctor where email like '$email' and password like '$password';");
+            if(count($doctors) > 0)
+            {
+                    $_SESSION["userID"] = $doctors[0]['id'];
+                    $_SESSION["user"] = $email;
+                    $_SESSION["userType"] = 'd';
+                    $_SESSION['success'] = lang("Welcome ") . $doctors[0]['name'] ;
+                    header('Location: doctor/index.php');
+                    exit();
+            }
+            else
+            {
+                $_SESSION["message"] = lang("No Doctor found with this data");
+                $_SESSION["fail"] = lang("No Doctor found with this data");
+                $errors[] = lang("No Doctor found with this data");
+            }
+        }
+        else if($userType == 'n')
+        {
+            $nurses = select("select * from nurse where email like '$email' and password like '$password';");
+            if(count($nurses) > 0)
+            {
+                    $_SESSION["userID"] = $nurses[0]['id'];
+                    $_SESSION["user"] = $email;
+                    $_SESSION["userType"] = 'n';
+                    $_SESSION['success'] = lang("Welcome ") . $nurses[0]['name'] ;
+                    header('Location: nurse/index.php');
+                    exit();
+            }
+            else
+            {
+                $_SESSION["message"] = lang("No Nurse found with this data");
+                $_SESSION["fail"] = lang("No Nurse found with this data");
+                $errors[] = lang("No Nurse found with this data");
+            }
+        }
+
         else
         {
             $_SESSION["message"] = lang("UnKnow user state ... contact admininstrator");
@@ -221,6 +294,12 @@ if (isset($_SESSION['user']))
                                 <a class="small" href="forget_password.php"><?php echo lang("Forgot Password?"); ?></a>
                                 <button class="btn btn-primary" name="login"
                                     type="submit"><?php echo lang("Login"); ?></button>
+                            </div>
+
+                            <!-- Form Group (login box)-->
+                            <div class="d-flex align-items-center  mt-4 mb-0">
+                            <?php echo lang("Dont Have Account"); ?> 
+                            <a class="small" href="signin.php"> <?php echo lang("Create Account"); ?> </a>
                             </div>
                         </form>
                     </div>

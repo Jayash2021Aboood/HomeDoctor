@@ -24,6 +24,21 @@ if (isset($_SESSION['user']))
             header('Location: student/index.php');
             exit();
         }
+        else if($_SESSION['userType'] == 'p')
+        {
+            header('Location: patient/index.php');
+            exit();
+        }
+        else if($_SESSION['userType'] == 'd')
+        {
+            header('Location: doctor/index.php');
+            exit();
+        }
+        else if($_SESSION['userType'] == 'n')
+        {
+            header('Location: nurse/index.php');
+            exit();
+        }
     }
     header('Location: index.php');
     exit();
@@ -115,7 +130,7 @@ if (isset($_SESSION['user']))
             $subject = "Recovery Password";
 
             // email message
-            $message = "hello $result your password in Bayda Library is $password \n thanks for contact us.";
+            $message = "hello $result your password in Home Doctor is $password \n thanks for contact us.";
 
             // additional headers
             $headers = "From: support@BaydaLibrary.com\r\n";
