@@ -7,7 +7,7 @@
 
   $pageTitle = lang("Update Setting");
   //$row = new Setting(null);
-   $id =  $return_days =  $fine_amount =  $student_max_issue = "";
+   $id =  $appointment_price = "";
   //$id = $name = $manager = $managerPhone = $agent = $agentPhone = $kindergarten = $earlyChildhood = $elementary = $intermediate = $secondary = $active = "";
   include('../../template/header.php'); 
   $errors = array();
@@ -22,9 +22,7 @@
       {
         $row = $result[0];
         $id = $row['id'];
-        $return_days = $row['return_days'];
-        $fine_amount = $row['fine_amount'];
-        $student_max_issue = $row['student_max_issue'];
+        $appointment_price = $row['appointment_price'];
       }
   }
 
@@ -33,20 +31,10 @@
     if(isset($_POST['updateSetting']))
     {
         $id = $_POST['id'];
-        $return_days = $_POST['return_days'];
-        $fine_amount = $_POST['fine_amount'];
-        $student_max_issue = $_POST['student_max_issue'];
-      if( empty($return_days)){
-        $errors[] = "<li>" . lang("Return Days is requierd") . "</li>";
-        $_SESSION["fail"] .= "<li>" . lang("Return Days is requierd") . "</li>";
-        }
-      if( empty($fine_amount)){
-        $errors[] = "<li>" . lang("Fine Amount is requierd") . "</li>";
-        $_SESSION["fail"] .= "<li>" . lang("Fine Amount is requierd") . "</li>";
-        }
-      if( empty($student_max_issue)){
-        $errors[] = "<li>" . lang("Student Max Issues is requierd") . "</li>";
-        $_SESSION["fail"] .= "<li>" . lang("Student Max Issues is requierd") . "</li>";
+        $appointment_price = $_POST['appointment_price'];
+      if( empty($appointment_price)){
+        $errors[] = "<li>" . lang("Appointment Price is requierd") . "</li>";
+        $_SESSION["fail"] .= "<li>" . lang("Appointment Price is requierd") . "</li>";
         }
       
       if(count($errors) == 0)
@@ -56,7 +44,7 @@
         if( count( $result ) > 0)
           $row = $result[0];
         
-        $update = AddOrUpdateSetting( $return_days,  $fine_amount,  $student_max_issue, );
+        $update = AddOrUpdateSetting($appointment_price);
         if($update ==  true)
         {
   
@@ -113,31 +101,14 @@
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <input type="hidden" name="id" id="id" value="<?php echo $id;?>" />
-                                <!-- Form Group (return_days)-->
+                                <!-- Form Group (appointment_price)-->
                                 <div class="col-md-4 mb-3">
                                     <label class="small mb-1"
-                                        for="return_days"><?php echo lang("Return Days"); ?></label>
-                                    <input class="form-control" id="return_days" name="return_days" type="text"
-                                        placeholder="<?php echo lang("Return Days"); ?>"
-                                        value="<?php echo $return_days;?>" required />
+                                        for="appointment_price"><?php echo lang("Appointment Price"); ?></label>
+                                    <input class="form-control" id="appointment_price" name="appointment_price" type="text"
+                                        placeholder="<?php echo lang("Appointment Price"); ?>"
+                                        value="<?php echo $appointment_price;?>" required />
                                 </div>
-                                <!-- Form Group (fine_amount)-->
-                                <div class="col-md-4 mb-3">
-                                    <label class="small mb-1"
-                                        for="fine_amount"><?php echo lang("Fine Amount"); ?></label>
-                                    <input class="form-control" id="fine_amount" name="fine_amount" type="text"
-                                        placeholder="<?php echo lang("Fine Amount"); ?>"
-                                        value="<?php echo $fine_amount;?>" required />
-                                </div>
-                                <!-- Form Group (student_max_issue)-->
-                                <div class="col-md-4 mb-3">
-                                    <label class="small mb-1"
-                                        for="student_max_issue"><?php echo lang("Student Max Issues"); ?></label>
-                                    <input class="form-control" id="student_max_issue" name="student_max_issue"
-                                        type="text" placeholder="<?php echo lang("Student Max Issues"); ?>"
-                                        value="<?php echo $student_max_issue;?>" required />
-                                </div>
-
                             </div>
                             <!-- Submit button-->
                             <button name="updateSetting" class="btn btn-success"

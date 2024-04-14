@@ -6,9 +6,7 @@
 class Setting
 {
 	public $id;
-	public $return_days;
-	public $fine_amount;
-	public $student_max_issue;
+	public $appointment_price;
 
 	function __construct($row)
 	{
@@ -20,9 +18,7 @@ class Setting
 		if(is_array($row))
 		{
 			$this->id = $row[0];
-			$this->return_days = $row[1];
-			$this->fine_amount = $row[2];
-			$this->student_max_issue = $row[3];
+			$this->appointment_price = $row[1];
 		}
 	}
 
@@ -43,38 +39,34 @@ function getSettingByName($search)
 	return select("SELECT * FROM setting WHERE name like '%$search%' and active = 1");
 }
 
-function addSetting( $return_days, $fine_amount, $student_max_issue)
+function addSetting($appointment_price)
 {
     $sql = 
 		"INSERT INTO setting VALUES(null,
-$return_days,$fine_amount,$student_max_issue)";	return query($sql);
+$appointment_price)";	return query($sql);
 }
 
-function updateSetting( $id, $return_days, $fine_amount, $student_max_issue)
+function updateSetting( $id, $appointment_price)
 {
     $sql = 
 		"UPDATE setting SET 
-		return_days = $return_days
-,		fine_amount = $fine_amount
-,		student_max_issue = $student_max_issue
-		WHERE id = $id ";
+		 appointment_price = $appointment_price
+		 WHERE id = $id ";
     return query($sql);
 }
 
 
-function AddOrUpdateSetting($return_days, $fine_amount, $student_max_issue)
+function AddOrUpdateSetting($appointment_price)
 {
 	$setting = GetSetting();
 	if(is_null($setting) || empty($setting) || count($setting) == 0){
 		$sql = 
 			"INSERT INTO setting VALUES(null,
-			$return_days,$fine_amount,$student_max_issue)";
+			$appointment_price)";
 	}
 	else{
 		$sql = "UPDATE setting 
-			SET return_days = $return_days, 
-			fine_amount = $fine_amount, 
-			student_max_issue = $student_max_issue 
+			SET appointment_price = $appointment_price
 			WHERE id = " . $setting[0]['id'] . ";";
 	}
     return query($sql);
