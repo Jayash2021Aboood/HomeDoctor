@@ -1,19 +1,19 @@
 <footer class="footer-admin mt-10 footer-light bg-black pt-3 pb-3 h-auto">
     <div class="container-xl px-4">
         <div class="row">
-            <div class="col-sm-12 small text-center mb-2"><?php echo lang("Copyright © Bayda Library 2023"); ?></div>
+            <div class="col-sm-12 small text-center mb-2"><?php echo lang("Copyright © Home Doctor 2023"); ?></div>
             <div class="col-sm-6 small mb-2">
                 <div>
                     <i class="fa-solid fa-envelope"></i>
-                    contact@baydaauniv.net
+                    contact@homedoctor.net
                 </div>
                 <div>
                     <i class="fa-solid fa-phone"></i>
-                    777155986
+                    0598773383
                 </div>
             </div>
             <div class="col-sm-6 text-md-end small">
-                <img src="<?php echo $PATH_SERVER ?>assets/img/logo-wide-white.png" alt="">
+                <img src="<?php echo $PATH_SERVER ?>assets/img/logo.jpeg" alt="" width="300px" height="80px">
                 <!-- <a href="#!">Privacy Policy</a>
                 ·
                 <a href="#!">Terms &amp; Conditions</a> -->
