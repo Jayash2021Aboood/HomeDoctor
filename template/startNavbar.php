@@ -399,6 +399,18 @@
                             <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
                             <?php echo lang("Sign in");?>
                         </a>
+                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>nurseSignin.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
+                            <?php echo lang("Create Nurse Account");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>doctorSignin.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
+                            <?php echo lang("Create Doctor Account");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>patientSignin.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
+                            <?php echo lang("Create Patient Account");?>
+                        </a>
                         <?php if(!isLogin()) {?>
                         <a class="nav-link" href="<?php echo $PATH_SERVER; ?>login.php">
                             <div class="nav-link-icon"><i class="fa-solid fa-right-to-bracket"></i></div>
