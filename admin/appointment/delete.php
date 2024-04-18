@@ -144,6 +144,12 @@
                                     <input class="form-control" id="appointment_date" name="appointment_date" type="text" placeholder="<?php echo lang("Appointment Date"); ?>"
                                         value="<?php echo $row['appointment_date'];?>" readonly />
                                 </div>
+                                <!-- Form Group (appointment_time)-->
+                                <div class="col-md-4 mb-3">
+                                    <label class="small mb-1" for="appointment_time"><?php echo lang("Appointment Time"); ?></label>
+                                    <input class="form-control" id="appointment_time" name="appointment_time" type="text" placeholder="<?php echo lang("Appointment Time"); ?>"
+                                        value="<?php echo $row['appointment_time'];?>" readonly />
+                                </div>
                                 <!-- Form Group (price)-->
                                 <div class="col-md-4 mb-3">
                                     <label class="small mb-1" for="price"><?php echo lang("Price"); ?></label>
@@ -155,6 +161,12 @@
                                     <label class="small mb-1" for="state"><?php echo lang("State"); ?></label>
                                     <input class="form-control" id="state" name="state" type="text" placeholder="<?php echo lang("State"); ?>"
                                         value="<?php echo $row['state'];?>" readonly />
+                                </div>
+                                <!-- Form Group (created_date)-->
+                                <div class="col-md-4 mb-3">
+                                    <label class="small mb-1" for="created_date"><?php echo lang("Created Date"); ?></label>
+                                    <input class="form-control" id="created_date" name="created_date" type="text" placeholder="<?php echo lang("Created Date"); ?>"
+                                        value="<?php echo $row['created_date'];?>" readonly />
                                 </div>
  
                             </div>

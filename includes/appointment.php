@@ -11,8 +11,10 @@ class Appointment
 	public $doctor_id;
 	public $nurse_id;
 	public $appointment_date;
+	public $appointment_time;
 	public $price;
 	public $state;
+	public $created_date;
 
 	function __construct($row)
 	{
@@ -29,8 +31,10 @@ class Appointment
 			$this->doctor_id = $row[3];
 			$this->nurse_id = $row[4];
 			$this->appointment_date = $row[5];
-			$this->price = $row[6];
-			$this->state = $row[7];
+			$this->appointment_time = $row[6];
+			$this->price = $row[7];
+			$this->state = $row[8];
+			$this->created_date = $row[9];
 		}
 	}
 
@@ -51,14 +55,14 @@ function getAppointmentByName($search)
 	return select("SELECT * FROM appointment WHERE name like '%$search%' and active = 1");
 }
 
-function addAppointment( $detail, $patient_id , $doctor_id, $nurse_id, $appointment_date, $price, $state)
+function addAppointment( $detail, $patient_id , $doctor_id, $nurse_id, $appointment_date, $appointment_time, $price, $state, $created_date)
 {
     $sql = 
 		"INSERT INTO appointment VALUES(null,
-'$detail',$patient_id ,$doctor_id,$nurse_id,'$appointment_date',$price,'$state')";	return query($sql);
+'$detail',$patient_id ,$doctor_id,$nurse_id,'$appointment_date','$appointment_time',$price,'$state','$created_date')";	return query($sql);
 }
 
-function updateAppointment( $id, $detail, $patient_id , $doctor_id, $nurse_id, $appointment_date, $price, $state)
+function updateAppointment( $id, $detail, $patient_id , $doctor_id, $nurse_id, $appointment_date, $appointment_time, $price, $state, $created_date)
 {
     $sql = 
 		"UPDATE appointment SET 
@@ -67,8 +71,10 @@ function updateAppointment( $id, $detail, $patient_id , $doctor_id, $nurse_id, $
 ,		doctor_id = $doctor_id
 ,		nurse_id = $nurse_id
 ,		appointment_date = '$appointment_date'
+,		appointment_time = '$appointment_time'
 ,		price = $price
 ,		state = '$state'
+,		created_date = '$created_date'
 		WHERE id = $id ";
     return query($sql);
 }

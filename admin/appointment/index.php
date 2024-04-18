@@ -49,8 +49,10 @@
                             <th><?php echo lang("Doctor"); ?></th>
                             <th><?php echo lang("Nurse"); ?></th>
                             <th><?php echo lang("Appointment Date"); ?></th>
+                            <th><?php echo lang("Appointment Time"); ?></th>
                             <th><?php echo lang("Price"); ?></th>
                             <th><?php echo lang("State"); ?></th>
+                            <th><?php echo lang("Created Date"); ?></th>
                             <th><?php echo lang("Actions"); ?></th>
                         </tr>
                     </thead>
@@ -62,8 +64,10 @@
                                             <th>Doctor</th>
                                             <th>Nurse</th>
                                             <th>Appointment Date</th>
+                                            <th>Appointment Time</th>
                                             <th>Price</th>
                                             <th>State</th>
+                                            <th>Created Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot> -->
@@ -110,8 +114,10 @@
                                     ?>
                             </td>
                                 <td> <?php echo($row['appointment_date']); ?> </td>
+                                  <td> <?php echo($row['appointment_time']); ?> </td>
                                   <td> <?php echo($row['price']); ?> </td>
                                   <td> <?php echo($row['state']); ?> </td>
+                                  <td> <?php echo($row['created_date']); ?> </td>
   
                             <td>
                                 <a class="btn btn-datatable btn-icon btn-transparent-dark me-2"

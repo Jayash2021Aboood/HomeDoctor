@@ -30,9 +30,13 @@
 
       $appointment_date = $_POST['appointment_date'];
 
+      $appointment_time = $_POST['appointment_time'];
+
       $price = $_POST['price'];
 
       $state = $_POST['state'];
+
+      $created_date = $_POST['created_date'];
 
       if( empty($detail)){
         $errors[] = "<li>" . lang("Detail is requierd") . "</li>";
@@ -46,6 +50,10 @@
         $errors[] = "<li>" . lang("Appointment Date is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Appointment Date is requierd") . "</li>";
         }
+      if( empty($appointment_time)){
+        $errors[] = "<li>" . lang("Appointment Time is requierd") . "</li>";
+        $_SESSION["fail"] .= "<li>" . lang("Appointment Time is requierd") . "</li>";
+        }
       if( empty($price)){
         $errors[] = "<li>" . lang("Price is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Price is requierd") . "</li>";
@@ -53,6 +61,10 @@
       if( empty($state)){
         $errors[] = "<li>" . lang("State is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("State is requierd") . "</li>";
+        }
+      if( empty($created_date)){
+        $errors[] = "<li>" . lang("Created Date is requierd") . "</li>";
+        $_SESSION["fail"] .= "<li>" . lang("Created Date is requierd") . "</li>";
         }
   
       if(count($errors) == 0)
@@ -63,8 +75,10 @@
                                     $doctor_id,
                                     $nurse_id,
                                     $appointment_date,
+                                    $appointment_time,
                                     $price,
                                     $state,
+                                    $created_date,
                                     );
         if($add ==  true)
         {
@@ -171,6 +185,12 @@
                                     <input class="form-control" id="appointment_date" name="appointment_date" type="date" placeholder="<?php echo lang("Appointment Date"); ?>"
                                         value="" required  />
                                 </div>
+                                <!-- Form Group (appointment_time)-->
+                                <div class="col-md-4 mb-3">
+                                    <label class="small mb-1" for="appointment_time"><?php echo lang("Appointment Time"); ?></label>
+                                    <input class="form-control" id="appointment_time" name="appointment_time" type="text" placeholder="<?php echo lang("Appointment Time"); ?>"
+                                        value="" required  />
+                                </div>
                                 <!-- Form Group (price)-->
                                 <div class="col-md-4 mb-3">
                                     <label class="small mb-1" for="price"><?php echo lang("Price"); ?></label>
@@ -181,6 +201,12 @@
                                 <div class="col-md-4 mb-3">
                                     <label class="small mb-1" for="state"><?php echo lang("State"); ?></label>
                                     <input class="form-control" id="state" name="state" type="text" placeholder="<?php echo lang("State"); ?>"
+                                        value="" required  />
+                                </div>
+                                <!-- Form Group (created_date)-->
+                                <div class="col-md-4 mb-3">
+                                    <label class="small mb-1" for="created_date"><?php echo lang("Created Date"); ?></label>
+                                    <input class="form-control" id="created_date" name="created_date" type="date" placeholder="<?php echo lang("Created Date"); ?>"
                                         value="" required  />
                                 </div>
                             </div>
