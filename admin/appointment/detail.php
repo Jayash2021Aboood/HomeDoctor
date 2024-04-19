@@ -121,13 +121,13 @@
                                     <input class="form-control" id="detail" name="detail" type="text" placeholder="<?php echo lang("Detail"); ?>"
                                         value="<?php echo $row['detail'];?>" readonly />
                                 </div>
-                                <!-- Form Group (patient_id )-->
+                                <!-- Form Group (patient_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="patient_id "><?php echo lang("Patient"); ?></label>
-                                    <select disabled class="form-select" name="patient_id " id="patient_id " required>
+                                    <label class="small mb-1" for="patient_id"><?php echo lang("Patient"); ?></label>
+                                    <select disabled class="form-select" name="patient_id" id="patient_id" required>
                                         <option disabled value=""><?php echo lang("Select a Patient"); ?>:</option>
                                         <?php foreach(getAllPatients() as $Patient) { ?>
-                                        <option <?php if($row['patient_id '] == $Patient['id']) echo "selected" ?> value="<?php echo $Patient['id']; ?>"> <?php echo $Patient['first_name']; ?>
+                                        <option <?php if($row['patient_id'] == $Patient['id']) echo "selected" ?> value="<?php echo $Patient['id']; ?>"> <?php echo $Patient['first_name']; ?>
                                         </option>
                                         <?php }?>
                                     </select>

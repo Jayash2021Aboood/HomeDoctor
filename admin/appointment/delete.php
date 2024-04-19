@@ -120,11 +120,11 @@
                                     <input class="form-control" id="detail" name="detail" type="text" placeholder="<?php echo lang("Detail"); ?>"
                                         value="<?php echo $row['detail'];?>" readonly />
                                 </div>
-                                <!-- Form Group (patient_id )-->
+                                <!-- Form Group (patient_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="patient_id "><?php echo lang("Patient"); ?></label>
-                                    <input class="form-control" id="patient_id " name="patient_id " type="text" placeholder="<?php echo lang("Patient"); ?>"
-                                        value="<?php echo $row['patient_id '];?>" readonly />
+                                    <label class="small mb-1" for="patient_id"><?php echo lang("Patient"); ?></label>
+                                    <input class="form-control" id="patient_id" name="patient_id" type="text" placeholder="<?php echo lang("Patient"); ?>"
+                                        value="<?php echo $row['patient_id'];?>" readonly />
                                 </div>
                                 <!-- Form Group (doctor_id)-->
                                 <div class="col-md-4 mb-3">

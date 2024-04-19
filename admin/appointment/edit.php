@@ -10,7 +10,7 @@
 
   $pageTitle = lang("Edit Appointment");
   //$row = new Appointment(null);
-   $id =  $detail =  $patient_id  =  $doctor_id =  $nurse_id =  $appointment_date =  $appointment_time =  $price =  $state =  $created_date = "";
+   $id =  $detail =  $patient_id =  $doctor_id =  $nurse_id =  $appointment_date =  $appointment_time =  $price =  $state =  $created_date = "";
   //$id = $name = $manager = $managerPhone = $agent = $agentPhone = $kindergarten = $earlyChildhood = $elementary = $intermediate = $secondary = $active = "";
   include('../../template/header.php'); 
   $errors = array();
@@ -29,7 +29,7 @@
         $row = $result[0];
         $id = $row['id'];
         $detail = $row['detail'];
-        $patient_id  = $row['patient_id '];
+        $patient_id = $row['patient_id'];
         $doctor_id = $row['doctor_id'];
         $nurse_id = $row['nurse_id'];
         $appointment_date = $row['appointment_date'];
@@ -59,7 +59,7 @@
     {
         $id = $_POST['id'];
         $detail = $_POST['detail'];
-        $patient_id  = $_POST['patient_id '];
+        $patient_id = $_POST['patient_id'];
         $doctor_id = $_POST['doctor_id'];
         $nurse_id = $_POST['nurse_id'];
         $appointment_date = $_POST['appointment_date'];
@@ -71,7 +71,7 @@
         $errors[] = "<li>" . lang("Detail is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Detail is requierd") . "</li>";
         }
-      if( empty($patient_id )){
+      if( empty($patient_id)){
         $errors[] = "<li>" . lang("Patient is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Patient is requierd") . "</li>";
         }
@@ -103,7 +103,7 @@
         if( count( $result ) > 0)
           $row = $result[0];
         
-        $update = updateAppointment( $id,  $detail,  $patient_id ,  $doctor_id,  $nurse_id,  $appointment_date,  $appointment_time,  $price,  $state,  $created_date, );
+        $update = updateAppointment( $id,  $detail,  $patient_id,  $doctor_id,  $nurse_id,  $appointment_date,  $appointment_time,  $price,  $state,  $created_date, );
         if($update ==  true)
         {
   
@@ -170,13 +170,13 @@
                                     <input class="form-control" id="detail" name="detail" type="text" placeholder="<?php echo lang("Detail"); ?>"
                                         value="<?php echo $detail;?>" required />
                                 </div>
-                                <!-- Form Group (patient_id )-->
+                                <!-- Form Group (patient_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="patient_id "><?php echo lang("Patient"); ?></label>
-                                    <select class="form-select" name="patient_id " id="patient_id " required>
+                                    <label class="small mb-1" for="patient_id"><?php echo lang("Patient"); ?></label>
+                                    <select class="form-select" name="patient_id" id="patient_id" required>
                                         <option disabled value=""><?php echo lang("Select a Patient"); ?>:</option>
                                         <?php foreach(getAllPatients() as $Patient) { ?>
-                                        <option <?php if($patient_id  == $Patient['id']) echo "selected" ?> value="<?php echo $Patient['id']; ?>"> <?php echo $Patient['first_name']; ?>
+                                        <option <?php if($patient_id == $Patient['id']) echo "selected" ?> value="<?php echo $Patient['id']; ?>"> <?php echo $Patient['first_name']; ?>
                                         </option>
                                         <?php }?>
                                     </select>

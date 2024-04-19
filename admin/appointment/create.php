@@ -22,7 +22,7 @@
 
       $detail = $_POST['detail'];
 
-      $patient_id  = $_POST['patient_id '];
+      $patient_id = $_POST['patient_id'];
 
       $doctor_id = $_POST['doctor_id'];
 
@@ -42,7 +42,7 @@
         $errors[] = "<li>" . lang("Detail is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Detail is requierd") . "</li>";
         }
-      if( empty($patient_id )){
+      if( empty($patient_id)){
         $errors[] = "<li>" . lang("Patient is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Patient is requierd") . "</li>";
         }
@@ -71,7 +71,7 @@
       {
         $add = addAppointment(
                                     $detail,
-                                    $patient_id ,
+                                    $patient_id,
                                     $doctor_id,
                                     $nurse_id,
                                     $appointment_date,
@@ -143,10 +143,10 @@
                                     <input class="form-control" id="detail" name="detail" type="text" placeholder="<?php echo lang("Detail"); ?>"
                                         value="" required  />
                                 </div>
-                                <!-- Form Group (patient_id )-->
+                                <!-- Form Group (patient_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="patient_id "><?php echo lang("Patient"); ?></label>
-                                    <select class="form-select" name="patient_id " id="patient_id " required>
+                                    <label class="small mb-1" for="patient_id"><?php echo lang("Patient"); ?></label>
+                                    <select class="form-select" name="patient_id" id="patient_id" required>
                                         <option selected disabled value=""><?php echo lang("Select a Patient"); ?>:</option>
                                         <?php foreach(getAllPatients() as $Patient) { ?>
                                         <option value="<?php echo $Patient['id']; ?>"> <?php echo $Patient['first_name']; ?>

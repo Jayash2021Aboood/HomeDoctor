@@ -99,7 +99,7 @@
                                 <td> <?php echo($row['id']); ?> </td>
                                   <td> <?php echo($row['detail']); ?> </td>
                                   <td> <?php
-                                    $Patient = getPatientById($row['patient_id ']) [0];
+                                    $Patient = getPatientById($row['patient_id']) [0];
                                     echo$Patient['first_name']; 
                                     ?>
                             </td>
