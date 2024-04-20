@@ -3,7 +3,7 @@
   include('../includes/lib.php');
   $pageTitle = "Home";
 
-  checkAdminSession();
+  checkNurseSession();
   ?>
 
 <?php include('../template/header.php'); ?>
