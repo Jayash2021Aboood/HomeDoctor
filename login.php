@@ -177,12 +177,40 @@ if (isset($_SESSION['user']))
             $doctors = select("select * from doctor where email like '$email' and password like '$password';");
             if(count($doctors) > 0)
             {
-                    $_SESSION["userID"] = $doctors[0]['id'];
-                    $_SESSION["user"] = $email;
-                    $_SESSION["userType"] = 'd';
-                    $_SESSION['success'] = lang("Welcome ") . $doctors[0]['name'] ;
-                    header('Location: doctor/index.php');
-                    exit();
+
+                    if($doctors[0]['state'] == 'reject'){
+                        $_SESSION["message"] = "your account has been rejected ... contact to adminstrator";
+                        $_SESSION["fail"] = "your account has been rejected ... contact to adminstrator";
+                        header('Location: login.php');
+                        exit();
+                    }
+                    else if($doctors[0]['state'] == 'request'){
+                        $_SESSION["message"] = "your account not accepted Yet ... contact to adminstrator";
+                        $_SESSION["fail"] = "your account not accepted Yet ... contact to adminstrator";
+                        header('Location: login.php');
+                        exit();
+                    }
+                    else if($doctors[0]['state'] == 'accept')
+                    {
+                        $_SESSION["userID"] = $doctors[0]['id'];
+                        $_SESSION["user"] = $email;
+                        $_SESSION["userType"] = 'd';
+                        $_SESSION['success'] = "Welcome ".$doctors[0]['first_name'] ." ". $doctors[0]['last_name'] ;
+                        header('Location: doctor/index.php');
+                    }
+                    else
+                    {
+                        $_SESSION["message"] = "UnKnow doctor state ... contact admininstrator";
+                        $_SESSION["fail"] = "UnKnow doctor state ... contact admininstrator";
+                        $errors[] = "UnKnow doctor state ... contact admininstrator";
+                    }
+
+                    // $_SESSION["userID"] = $doctors[0]['id'];
+                    // $_SESSION["user"] = $email;
+                    // $_SESSION["userType"] = 'd';
+                    // $_SESSION['success'] = lang("Welcome ") . $doctors[0]['name'] ;
+                    // header('Location: doctor/index.php');
+                    // exit();
             }
             else
             {
@@ -196,12 +224,40 @@ if (isset($_SESSION['user']))
             $nurses = select("select * from nurse where email like '$email' and password like '$password';");
             if(count($nurses) > 0)
             {
+
+                if($nurses[0]['state'] == 'reject'){
+                    $_SESSION["message"] = "your account has been rejected ... contact to adminstrator";
+                    $_SESSION["fail"] = "your account has been rejected ... contact to adminstrator";
+                    header('Location: login.php');
+                    exit();
+                }
+                else if($nurses[0]['state'] == 'request'){
+                    $_SESSION["message"] = "your account not accepted Yet ... contact to adminstrator";
+                    $_SESSION["fail"] = "your account not accepted Yet ... contact to adminstrator";
+                    header('Location: login.php');
+                    exit();
+                }
+                else if($nurses[0]['state'] == 'accept')
+                {
                     $_SESSION["userID"] = $nurses[0]['id'];
                     $_SESSION["user"] = $email;
-                    $_SESSION["userType"] = 'n';
-                    $_SESSION['success'] = lang("Welcome ") . $nurses[0]['name'] ;
+                    $_SESSION["userType"] = 'd';
+                    $_SESSION['success'] = "Welcome ".$nurses[0]['first_name'] ." ". $nurses[0]['last_name'] ;
                     header('Location: nurse/index.php');
-                    exit();
+                }
+                else
+                {
+                    $_SESSION["message"] = "UnKnow nurse state ... contact admininstrator";
+                    $_SESSION["fail"] = "UnKnow nurse state ... contact admininstrator";
+                    $errors[] = "UnKnow nurse state ... contact admininstrator";
+                }
+
+                    // $_SESSION["userID"] = $nurses[0]['id'];
+                    // $_SESSION["user"] = $email;
+                    // $_SESSION["userType"] = 'n';
+                    // $_SESSION['success'] = lang("Welcome ") . $nurses[0]['name'] ;
+                    // header('Location: nurse/index.php');
+                    // exit();
             }
             else
             {
@@ -299,7 +355,7 @@ if (isset($_SESSION['user']))
                             <!-- Form Group (login box)-->
                             <div class="d-flex align-items-center  mt-4 mb-0">
                             <?php echo lang("Dont Have Account"); ?> 
-                            <a class="small" href="signin.php"> <?php echo lang("Create Account"); ?> </a>
+                            <a class="small" href="index.php"> <?php echo lang("Create Account"); ?> </a>
                             </div>
                         </form>
                     </div>
