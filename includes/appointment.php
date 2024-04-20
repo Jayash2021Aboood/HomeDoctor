@@ -7,7 +7,7 @@ class Appointment
 {
 	public $id;
 	public $detail;
-	public $patient_id;
+	public $patient_id ;
 	public $doctor_id;
 	public $nurse_id;
 	public $appointment_date;
@@ -27,7 +27,7 @@ class Appointment
 		{
 			$this->id = $row[0];
 			$this->detail = $row[1];
-			$this->patient_id = $row[2];
+			$this->patient_id  = $row[2];
 			$this->doctor_id = $row[3];
 			$this->nurse_id = $row[4];
 			$this->appointment_date = $row[5];
@@ -55,19 +55,24 @@ function getAppointmentByName($search)
 	return select("SELECT * FROM appointment WHERE name like '%$search%' and active = 1");
 }
 
-function addAppointment( $detail, $patient_id, $doctor_id, $nurse_id, $appointment_date, $appointment_time, $price, $state, $created_date)
+function addAppointment( $detail, $patient_id , $doctor_id, $nurse_id, $appointment_date, $appointment_time, $price, $state, $created_date)
 {
+	// var_dump($doctor_id);
+	// var_dump($nurse_id);
+	if( is_null($doctor_id) || empty($doctor_id)) $doctor_id = "null";
+	if( is_null($nurse_id) || empty($nurse_id)) $nurse_id = "null";
     $sql = 
 		"INSERT INTO appointment VALUES(null,
-'$detail',$patient_id,$doctor_id,$nurse_id,'$appointment_date','$appointment_time',$price,'$state','$created_date')";	return query($sql);
+'$detail',$patient_id ,$doctor_id,$nurse_id,'$appointment_date','$appointment_time',$price,'$state','$created_date')";
+	return query($sql);
 }
 
-function updateAppointment( $id, $detail, $patient_id, $doctor_id, $nurse_id, $appointment_date, $appointment_time, $price, $state, $created_date)
+function updateAppointment( $id, $detail, $patient_id , $doctor_id, $nurse_id, $appointment_date, $appointment_time, $price, $state, $created_date)
 {
     $sql = 
 		"UPDATE appointment SET 
 		detail = '$detail'
-,		patient_id = $patient_id
+,		patient_id  = $patient_id 
 ,		doctor_id = $doctor_id
 ,		nurse_id = $nurse_id
 ,		appointment_date = '$appointment_date'
