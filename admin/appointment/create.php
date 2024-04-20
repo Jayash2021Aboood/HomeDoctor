@@ -13,7 +13,6 @@
   include('../../template/header.php'); 
   $errors = array();
 
-
   if ($_SERVER['REQUEST_METHOD'] === 'POST') 
   {
     if(isset($_POST['addAppointment']))
@@ -24,9 +23,9 @@
 
       $patient_id = $_POST['patient_id'];
 
-      $doctor_id = $_POST['doctor_id'];
+      $doctor_id = $_POST['doctor_id'] ?? null;
 
-      $nurse_id = $_POST['nurse_id'];
+      $nurse_id = $_POST['nurse_id'] ?? null;
 
       $appointment_date = $_POST['appointment_date'];
 

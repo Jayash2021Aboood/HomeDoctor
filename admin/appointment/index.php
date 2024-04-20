@@ -99,18 +99,22 @@
                                 <td> <?php echo($row['id']); ?> </td>
                                   <td> <?php echo($row['detail']); ?> </td>
                                   <td> <?php
-                                    $Patient = getPatientById($row['patient_id']) [0];
-                                    echo$Patient['first_name']; 
+                                        $Patient = getPatientById($row['patient_id']) [0];
+                                        echo$Patient['first_name']; 
                                     ?>
                             </td>
                                 <td> <?php
+                                if(!is_null($row['doctor_id'])){
                                     $Doctor = getDoctorById($row['doctor_id']) [0];
                                     echo$Doctor['first_name']; 
+                                }
                                     ?>
                             </td>
                                 <td> <?php
+                                if(!is_null($row['nurse_id'])){
                                     $Nurse = getNurseById($row['nurse_id']) [0];
                                     echo$Nurse['first_name']; 
+                                }
                                     ?>
                             </td>
                                 <td> <?php echo($row['appointment_date']); ?> </td>
