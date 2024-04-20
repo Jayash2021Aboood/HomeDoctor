@@ -222,61 +222,9 @@
                             <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
                             <?php echo lang("Payments");?>
                         </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_AUTHOR; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
-                            <?php echo lang("Author");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_BOOK; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-book"></i></div>
-                            <?php echo lang("Books");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_COLLEGE; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-building-columns"></i></div>
-                            <?php echo lang("Colleges");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_DEPARTMENT; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-building"></i></div>
-                            <?php echo lang("Departments");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_EMPLOYEE; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-user-tie"></i></div>
-                            <?php echo lang("Employees");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_FINE; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-coins"></i></div>
-                            <?php echo lang("Fines");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_ISSUE; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                            <?php echo lang("Issues");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_LANGUAGE; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-language"></i></div>
-                            <?php echo lang("Languages");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_LEVEL; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-layer-group"></i></div>
-                            <?php echo lang("Levels");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_LIBRARY; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-book-open-reader"></i></div>
-                            <?php echo lang("Library");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_PUBLISHER; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-file-powerpoint"></i></div>
-                            <?php echo lang("Publishers");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_SECTION; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i></i></div>
-                            <?php echo lang("Sections");?>
-                        </a>
                         <a class="nav-link" href="<?php echo $PATH_ADMIN_SETTING; ?>">
                             <div class="nav-link-icon"><i class="fa-solid fa-sliders"></i></i></div>
                             <?php echo lang("Setting");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_ADMIN_STUDENT; ?>">
-                            <div class="nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                            <?php echo lang("Students");?>
                         </a>
 
                         <!-- ============================================================  -->
@@ -361,6 +309,49 @@
                             <div class="nav-link-icon"><i class="fa-solid fa-coins"></i></div>
                             <?PHP echo lang("My Fines");?>
                         </a>
+                        <?php }else if(isDoctor()){ ?>
+
+                        <div class="sidenav-menu-heading"><?php echo lang("Control Panel");?></div>
+
+                        <a class="nav-link" href="<?php echo $PATH_DOCTOR;?>index.php">
+                            <div class="nav-link-icon"><i class="fa fa-home fa-lg"></i>
+                            </div>
+                            <?php echo lang("Dashboard");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $mainPage; ?>my_appointments.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <?PHP echo lang("My Appointments");?>
+                        </a>
+                        <?php }else if(isNurse()){ ?>
+
+                        <div class="sidenav-menu-heading"><?php echo lang("Control Panel");?></div>
+
+                        <a class="nav-link" href="<?php echo $PATH_NURSE;?>index.php">
+                            <div class="nav-link-icon"><i class="fa fa-home fa-lg"></i>
+                            </div>
+                            <?php echo lang("Dashboard");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $mainPage; ?>my_appointments.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <?PHP echo lang("My Appointments");?>
+                        </a>
+                        <?php }else if(isPatient()){ ?>
+
+                        <div class="sidenav-menu-heading"><?php echo lang("Control Panel");?></div>
+
+                        <a class="nav-link" href="<?php echo $PATH_PATIENT;?>index.php">
+                            <div class="nav-link-icon"><i class="fa fa-home fa-lg"></i>
+                            </div>
+                            <?php echo lang("Home");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $mainPage; ?>my_appointments.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <?PHP echo lang("My Appointments");?>
+                        </a>
+                        <a class="nav-link" href="<?php echo $mainPage; ?>create_appointment.php">
+                            <div class="nav-link-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <?PHP echo lang("Add Appointment");?>
+                        </a>
                         <?php } ?>
 
 
@@ -372,32 +363,13 @@
                         <?php }
                         //else{ 
                             ?>
+                        <?php if(!isLogin()) {?>
                         <div class="sidenav-menu-heading"><?php echo lang("Fast Access"); ?></div>
 
                         <a class="nav-link active" href="<?php echo $PATH_SERVER;?>index.php">
                             <div class="nav-link-icon"><i class="fa fa-home fa-lg"></i>
                             </div>
                             <?php echo lang("Home");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>author_list.php">
-                            <div class="nav-link-icon"><i class="fa-solid fa-feather"></i></div>
-                            <?php echo lang("Author");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>book_list.php">
-                            <div class="nav-link-icon"><i class="fa-solid fa-book"></i></div>
-                            <?php echo lang("Books");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>publisher_list.php">
-                            <div class="nav-link-icon"><i class="fa-solid fa-file-powerpoint"></i></div>
-                            <?php echo lang("Publishers");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>section_list.php">
-                            <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
-                            <?php echo lang("Sections");?>
-                        </a>
-                        <a class="nav-link" href="<?php echo $PATH_SERVER;?>signin.php">
-                            <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
-                            <?php echo lang("Sign in");?>
                         </a>
                         <a class="nav-link" href="<?php echo $PATH_SERVER;?>nurseSignin.php">
                             <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
@@ -411,7 +383,7 @@
                             <div class="nav-link-icon"><i class="fa-solid fa-list-ul"></i> </div>
                             <?php echo lang("Create Patient Account");?>
                         </a>
-                        <?php if(!isLogin()) {?>
+                        
                         <a class="nav-link" href="<?php echo $PATH_SERVER; ?>login.php">
                             <div class="nav-link-icon"><i class="fa-solid fa-right-to-bracket"></i></div>
                             <?php echo lang("Login");?>
