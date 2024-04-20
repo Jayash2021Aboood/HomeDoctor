@@ -312,5 +312,19 @@
     "Payment Method" : "طريقة الدفع",
     "Add Payment" : "إضافة دفعة",
     "Back to Payments List" : "العودة إلى قائمة المدفوعات",
-    "Payment Details" : "تفاصيل الدفع"
+    "Payment Details" : "تفاصيل الدفع",
+"Create Nurse Account" : "انشاء حساب ممرض",
+"Create Doctor Account" : "انشاء حساب دكتور",
+"Create Patient Account" : "انشاء حساب مريض",
+"The home doctor welcomes you with a simple and comfortable design that reflects the spirit of comfort and health care. Includes basic information about your home doctor's services, including a schedule of available appointments and the services they provide, such as routine examinations and home treatments. The website also provides an easy way to book appointments via a simple form that can be filled out online. The site seeks to provide a smooth and reliable user experience for patients who prefer to receive medical care in the comfort of their homes." : "The home doctor welcomes you with a simple and comfortable design that reflects the spirit of comfort and health care. Includes basic information about your home doctor's services, including a schedule of available appointments and the services they provide, such as routine examinations and home treatments. The website also provides an easy way to book appointments via a simple form that can be filled out online. The site seeks to provide a smooth and reliable user experience for patients who prefer to receive medical care in the comfort of their homes.",
+"Doctors (count)" : "Doctors (count)",
+"Nurses (count)" : "Nurses (count)",
+"Patients (count)" : "Patients (count)",
+"Appointments (count)" : "Appointments (count)",
+"Appointment Time" : "وقت الحجز",
+"Created Date" : "تاريخ الاضافة",
+"My Appointments" : "مواعيدي",
+"Edit Appointment" : "تعديل الموعد",
+"Appointment Added successfuly!" : "تم اضافة الموعد بنجاح!"
+
     }
