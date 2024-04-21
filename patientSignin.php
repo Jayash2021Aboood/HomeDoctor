@@ -118,24 +118,23 @@
                                   $has_chronic_disease,
                                   $what_are_diseases,
                                   $has_allergic_to_anything,
-                                  $what_are_things,
-                                    'request');
+                                  $what_are_things);
             if($add ==  true)
             {
                 $patients = select("select * from patient where email like '$email' and password like '$password';");
                 if(count($patients) > 0)
                 {
 
-                    if($patients[0]['state'] != 'accept'){
-                        $_SESSION["message"] = "create account successfuly your account will accept in next 24 hours";
-                        $_SESSION["success"] = "create account successfuly your account will accept in next 24 hours";
-                        header('Location: index.php');
-                        exit();
-                    }
+                    // if($patients[0]['state'] != 'accept'){
+                    //     $_SESSION["message"] = "create account successfuly your account will accept in next 24 hours";
+                    //     $_SESSION["success"] = "create account successfuly your account will accept in next 24 hours";
+                    //     header('Location: index.php');
+                    //     exit();
+                    // }
 
                     $_SESSION["userID"] = $patients[0]['id'];
                     $_SESSION["user"] = $email;
-                    $_SESSION["userType"] = 'e';
+                    $_SESSION["userType"] = 'p';
                     $_SESSION['success'] = "Welcome ".$patients[0]['first_name'] ." ". $patients[0]['last_name'] ;
                     
                     header('Location: patient/index.php');
