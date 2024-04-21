@@ -370,16 +370,12 @@ function isUserExist($email)
 {
     $webusers =  select("SELECT COUNT(id) as total FROM webuser WHERE email = '$email';");
     $admins =  select("SELECT COUNT(id) as total FROM admin WHERE email = '$email';");
-    $students =  select("SELECT COUNT(id) as total FROM student WHERE email = '$email';");
-    $employees =  select("SELECT COUNT(id) as total FROM employee WHERE email = '$email';");
     $patients =  select("SELECT COUNT(id) as total FROM patient WHERE email = '$email';");
     $doctors =  select("SELECT COUNT(id) as total FROM doctor WHERE email = '$email';");
     $nurses =  select("SELECT COUNT(id) as total FROM nurse WHERE email = '$email';");
 
     if( $webusers[0]["total"] > 0  ||
         $admins[0]["total"] > 0 ||
-        $students[0]["total"] > 0 ||
-        $employees[0]["total"] > 0 ||
         $doctors[0]["total"] > 0||
         $nurses[0]["total"] > 0||
         $patients[0]["total"] > 0
