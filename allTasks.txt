@@ -48,3 +48,19 @@
 38-
 39-
 40-
+
+
+admin site:
+    - accept and reject Doctor and Nurse.
+    - remove un wanted statistics.
+    - change statistics Numbers in index page.
+    - remove un wanted liks.
+
+doctor and nurse site:
+add index page.
+
+login page does not make login for un accepted Doctor or nurse.
+Remove un wanted image from index page.
+
+
+
