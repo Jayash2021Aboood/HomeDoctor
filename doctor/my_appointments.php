@@ -25,12 +25,6 @@
                             <?php echo lang("My Appointments"); ?>
                         </h1>
                     </div>
-                    <div class="col-12 col-xl-auto mb-3">
-                        <a class="btn btn-sm btn-light text-primary" href="create.php">
-                            <i class="me-1" data-feather="plus"></i>
-                            <?php echo lang("Create New"); ?>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -124,16 +118,9 @@
                                   <td> <?php echo($row['created_date']); ?> </td>
   
                             <td>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2"
+                                
+                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
                                     href="edit.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-primary" data-feather="edit"></i>
-                                </a>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
-                                    href="delete.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-danger" data-feather="trash-2"></i>
-                                </a>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
-                                    href="detail.php?id=<?php echo($row['id']); ?>">
                                     <i class="text-success" data-feather="eye"></i>
                                 </a>
                             </td>

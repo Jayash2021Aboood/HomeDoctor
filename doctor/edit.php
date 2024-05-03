@@ -144,7 +144,7 @@
                         </h1>
                     </div>
                     <div class="col-12 col-xl-auto mb-3">
-                        <a class="btn btn-sm btn-light text-primary" href="index.php">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php">
                             <i class="me-1" data-feather="arrow-left"></i>
                             <?php echo lang("Back to Appointments List"); ?>
                         </a>
@@ -237,12 +237,11 @@
  
                             </div>
                             <!-- Submit button-->
-                            <button name="updateAppointment" class="btn btn-success" type="submit"><?php echo lang("Save"); ?></button>
-                            <button name="changeStateToAccept" class="btn btn-info" type="submit"
+                            <button name="changeStateToAccept" class="btn btn-info <?php if($state != 'request') echo "d-none";?>" type="submit"
                                 formaction="appointmentStateManager.php?id=<?php echo $id;?>"><?php echo lang("Accept"); ?></button>
-                            <button name="changeStateToReject" class="btn btn-pink" type="submit"
+                            <button name="changeStateToReject" class="btn btn-pink <?php if($state != 'request') echo "d-none";?>" type="submit"
                                 formaction="appointmentStateManager.php?id=<?php echo $id;?>"><?php echo lang("Reject"); ?></button>
-                            <a href="create.php?appointment_id=<?php echo $id;?>" class="btn btn-primary-soft" type="button"><?php echo lang("Add Medicine"); ?></a>    
+                            <a href="create.php?appointment_id=<?php echo $id;?>" class="btn btn-primary-soft <?php if($state != 'Accept' or 'payment') echo "d-none";?>" type="button"><?php echo lang("Add Medicine"); ?></a>    
                             <a href="index.php" class="btn btn-danger" type="button"><?php echo lang("Back To List"); ?></a>
                         </form>
                     </div>
@@ -262,12 +261,6 @@
                             <div class="page-header-icon"><i data-feather="users"></i></div>
                             <?php echo lang("Medicine List"); ?>
                         </h1>
-                    </div>
-                    <div class="col-12 col-xl-auto mb-3">
-                        <a class="btn btn-sm btn-light text-primary" href="create.php">
-                            <i class="me-1" data-feather="plus"></i>
-                            <?php echo lang("Create New"); ?>
-                        </a>
                     </div>
                 </div>
             </div>
