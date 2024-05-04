@@ -166,7 +166,7 @@
                             <div class="row gx-3 mb-3">
                                 <input type="hidden" name="id" id="id" value="<?php echo $id;?>" />
                                 <!-- Form Group (detail)-->
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-12 mb-12">
                                     <label class="small mb-1" for="detail"><?php echo lang("Detail"); ?></label>
                                     <input class="form-control" id="detail" name="detail" type="text" placeholder="<?php echo lang("Detail"); ?>"
                                         value="<?php echo $detail;?>" required />
@@ -183,7 +183,7 @@
                                     </select>
                                 </div>
                                 <!-- Form Group (doctor_id)-->
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 d-none">
                                     <label class="small mb-1" for="doctor_id"><?php echo lang("Doctor"); ?></label>
                                     <select class="form-select" name="doctor_id" id="doctor_id" >
                                         <option disabled value=""><?php echo lang("Select a Doctor"); ?>:</option>
@@ -194,7 +194,7 @@
                                     </select>
                                 </div>
                                 <!-- Form Group (nurse_id)-->
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 d-none">
                                     <label class="small mb-1" for="nurse_id"><?php echo lang("Nurse"); ?></label>
                                     <select class="form-select" name="nurse_id" id="nurse_id" >
                                         <option disabled value=""><?php echo lang("Select a Nurse"); ?>:</option>
@@ -231,7 +231,7 @@
                                 <!-- Form Group (created_date)-->
                                 <div class="col-md-4 mb-3">
                                     <label class="small mb-1" for="created_date"><?php echo lang("Created Date"); ?></label>
-                                    <input class="form-control" id="created_date" name="created_date" type="date" placeholder="<?php echo lang("Created Date"); ?>"
+                                    <input class="form-control" id="created_date" name="created_date" type="text" placeholder="<?php echo lang("Created Date"); ?>"
                                         value="<?php echo $created_date;?>" required readonly/>
                                 </div>
  
@@ -241,8 +241,8 @@
                                 formaction="appointmentStateManager.php?id=<?php echo $id;?>"><?php echo lang("Accept"); ?></button>
                             <button name="changeStateToReject" class="btn btn-pink <?php if($state != 'request') echo "d-none";?>" type="submit"
                                 formaction="appointmentStateManager.php?id=<?php echo $id;?>"><?php echo lang("Reject"); ?></button>
-                            <a href="create.php?appointment_id=<?php echo $id;?>" class="btn btn-primary-soft <?php if($state != 'Accept' or 'payment') echo "d-none";?>" type="button"><?php echo lang("Add Medicine"); ?></a>    
-                            <a href="index.php" class="btn btn-danger" type="button"><?php echo lang("Back To List"); ?></a>
+                            <a href="create.php?appointment_id=<?php echo $id;?>" class="btn btn-primary-soft <?php if(!($state == 'accept' || $state == 'payment')) echo "d-none";?>" type="button"><?php echo lang("Add Medicine"); ?></a>    
+                            <a href="my_appointments.php" class="btn btn-danger" type="button"><?php echo lang("Back To List"); ?></a>
                         </form>
                     </div>
                 </div>
@@ -251,7 +251,8 @@
     </div>
 </main>
 
-<main>
+
+<main class="<?php if(!($state == 'accept' || $state == 'payment')) echo "d-none";?>">
     <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
         <div class="container-fluid px-4">
             <div class="page-header-content">
@@ -275,7 +276,6 @@
                     <thead>
                         <tr>
                             <th><?php echo lang("ID"); ?></th>
-                            <th><?php echo lang("Appointment"); ?></th>
                             <th><?php echo lang("Name"); ?></th>
                             <th><?php echo lang("Detail"); ?></th>
                             <th><?php echo lang("Actions"); ?></th>
@@ -316,11 +316,6 @@
 
                         <tr>
                                 <td> <?php echo($row['id']); ?> </td>
-                                  <td> <?php
-                                    $Appointment = getAppointmentById($row['appointment_id']) [0];
-                                    echo$Appointment['detail']; 
-                                    ?>
-                            </td>
                                 <td> <?php echo($row['name']); ?> </td>
                                   <td> <?php echo($row['detail']); ?> </td>
   
