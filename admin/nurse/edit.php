@@ -253,6 +253,10 @@
                             </div>
                             <!-- Submit button-->
                             <button name="updateNurse" class="btn btn-success" type="submit"><?php echo lang("Save"); ?></button>
+                            <button name="changeStateToAccept" class="btn btn-info" type="submit"
+                                formaction="nurseStateManager.php?id=<?php echo $id;?>"><?php echo lang("Accept"); ?></button>
+                            <button name="changeStateToReject" class="btn btn-pink" type="submit"
+                                formaction="nurseStateManager.php?id=<?php echo $id;?>"><?php echo lang("Reject"); ?></button>
                             <a href="index.php" class="btn btn-danger" type="button"><?php echo lang("Back To List"); ?></a>
                         </form>
                     </div>

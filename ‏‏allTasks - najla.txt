@@ -1,0 +1,95 @@
+
+
+
+                Home Doctor Project
+===============================================
+
+1- Create Database With Tables. ======================= Done.
+2- Create Crud Operations For Admin Site.
+3- Display the date and days for free and appointment days for Doctor and nurse.
+4-
+5-
+6-
+7-
+8-
+9-
+10-
+
+11-
+12-
+13-
+14-
+15-
+16-
+17-
+18-
+19-
+20-
+
+
+21-
+22-
+23-
+24-
+25-
+26-
+27-
+28-
+29-
+30-
+
+31-
+32-
+33-
+34-
+35-
+36-
+37-
+38-
+39-
+40-
+
+
+admin site:
+    - accept and reject Doctor and Nurse.
+    - remove un wanted statistics.
+    - change statistics Numbers in index page.
+    - remove un wanted liks.
+
+doctor and nurse site:
+add index page.
+
+login page does not make login for un accepted Doctor or nurse.
+Remove un wanted image from index page.
+
+
+
+
+Delete Create New Button in doctor My appointents page.✅
+in doctor My appointents page remove trash and Edit icon form appointemnt table rows, only keep Eye icon.✅
+in doctor My appointents page in appointents table rows make Eye Icon to Redirct to edit.php page not to detail.php page.in doctor site on page edit.php✅ appointemnt make Button backtolist redirect to my_appointments.php page not to index.php page.✅
+in doctor site on page edit.php appointemnt:
+    - when page is open assign value to created_date input tag. ✅
+    - Remove Save Button from the page.✅
+    - accept and reject button must be hiden if the appointment state != 'request'.✅
+    - add medicne button must be show only if the appointment state is 'accepted' or 'payment'.✅
+    - add and display patient location in the page.
+    - remove create new button that above medicne list table.✅
+    - medicne list table must be show only if the appointment state is 'accepted' or 'payment'. ✅
+    - remove appointemnt column from medicne table. ✅
+
+
+
+in doctor site on page create.php medcine:
+    - fix add medicne error . ✅
+    - Button backtolist must to redirect to previus page not to index.php page. to opened Previous appointemnt. ✅
+    - after add must redirect to previus page not to index.php page. to opened Previous appointemnt. ✅
+
+- صفحة البروفايل للدكتور حقل الايميل يتم تجميده ✅
+- صفحة البروفايل للمريض حقل الايميل يتم تجميده ✅
+
+- في موقع الادمن في صفحة تعديل الممرض يجب اضافة الازرار قبول ورفض عشان الادمن يقدر يقبل الممرض او يرفضه
+مثل مايقدر يقبل الدكتور او يرفضه يعني يتم نسخ الكود من عند الدكتور للممرض .✅
+
+
+نسخ الكود حق موقع التدكتور تقريبا بالكامل ونقله للممرض عشان انه هو نفس الوظيفة واستبدال يعني الجزئيات الخاصة بالدكتور يتم استبدالها بالممرض ✅
