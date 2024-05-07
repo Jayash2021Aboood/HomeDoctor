@@ -3,9 +3,9 @@
   include('../includes/lib.php');
   include_once('../includes/appointment.php');
   include_once('../includes/patient.php');
-  include_once('../includes/doctor.php');
   include_once('../includes/nurse.php');
-  checkDoctorSession();
+  include_once('../includes/nurse.php');
+  checkNurseSession();
 
   $pageTitle = lang("My Appointments");
 ?>
@@ -40,7 +40,7 @@
                             <th><?php echo lang("ID"); ?></th>
                             <th><?php echo lang("Detail"); ?></th>
                             <th><?php echo lang("Patient"); ?></th>
-                            <th class="d-none"><?php echo lang("Doctor"); ?></th>
+                            <th class="d-none"><?php echo lang("Nurse"); ?></th>
                             <th class="d-none"><?php echo lang("Nurse"); ?></th>
                             <th><?php echo lang("Appointment Date"); ?></th>
                             <th><?php echo lang("Appointment Time"); ?></th>
@@ -55,7 +55,7 @@
                                             <th>ID</th>
                                             <th>Detail</th>
                                             <th>Patient</th>
-                                            <th>Doctor</th>
+                                            <th>Nurse</th>
                                             <th>Nurse</th>
                                             <th>Appointment Date</th>
                                             <th>Appointment Time</th>
@@ -86,7 +86,7 @@
                         <?php
                                         foreach($all as $row)
                                         {
-                                            if($_SESSION['userID'] != $row['doctor_id']) continue;
+                                            if($_SESSION['userID'] != $row['nurse_id']) continue;
                                         ?>
 
                         <tr>
@@ -98,9 +98,9 @@
                                     ?>
                             </td>
                                 <td class="d-none"> <?php
-                                if(!is_null($row['doctor_id'])){
-                                    $Doctor = getDoctorById($row['doctor_id']) [0];
-                                    echo$Doctor['first_name']; 
+                                if(!is_null($row['nurse_id'])){
+                                    $Nurse = getNurseById($row['nurse_id']) [0];
+                                    echo$Nurse['first_name']; 
                                 }
                                     ?>
                             </td>

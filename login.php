@@ -241,7 +241,7 @@ if (isset($_SESSION['user']))
                 {
                     $_SESSION["userID"] = $nurses[0]['id'];
                     $_SESSION["user"] = $email;
-                    $_SESSION["userType"] = 'd';
+                    $_SESSION["userType"] = 'n';
                     $_SESSION['success'] = "Welcome ".$nurses[0]['first_name'] ." ". $nurses[0]['last_name'] ;
                     header('Location: nurse/index.php');
                 }
