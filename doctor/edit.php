@@ -173,7 +173,7 @@
                                 </div>
                                 <!-- Form Group (patient_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="patient_id"><?php echo lang("Patient"); ?></label>
+                                    <a href="patient_details.php?id=<?php echo $patient_id; ?>" class="small mb-1" for="patient_id"><?php echo lang("Patient"); ?></a>
                                     <select class="form-select" name="patient_id" id="patient_id" required>
                                         <option disabled value=""><?php echo lang("Select a Patient"); ?>:</option>
                                         <?php foreach(getAllPatients() as $Patient) { ?>

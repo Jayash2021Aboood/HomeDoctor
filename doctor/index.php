@@ -77,9 +77,10 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
-                                <div class="fw-bold text-pink mb-3 text-center"><?php echo lang("Doctors"); ?> (count)</div>
+                                <div class="fw-bold text-pink mb-3 text-center"><?php echo lang("appointment"); ?> (count)</div>
                                 <div class="h5 text-center">
-                                    <?php echo (select("select count(id) as total from doctor;")[0])['total']; ?>
+                                <?php $doctor_id = $_SESSION['userID']; ?>
+                                    <?php echo (select("select count(id) as total where doctor_id=$doctor_id and state='request' from appointment;")[0])['total']; ?>
                                 </div>
                                 <!-- <div class="text-xs fw-bold text-danger d-inline-flex align-items-center">
                                     <i class="me-1" data-feather="trending-down"></i>
@@ -98,9 +99,9 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
-                                <div class="fw-bold text-secondary mb-3 text-center"><?php echo lang("Nurses"); ?> (count)</div>
+                                <div class="fw-bold text-secondary mb-3 text-center"><?php echo lang("appointment"); ?> (count)</div>
                                 <div class="h5 text-center">
-                                    <?php echo (select("select count(id) as total from nurse;")[0])['total']; ?>
+                                    <?php echo (select("select count(id) as total where doctor_id=$doctor_id from appointment;")[0])['total']; ?>
                                 </div>
                                 <!-- <div class="text-xs fw-bold text-danger d-inline-flex align-items-center">
                                     <i class="me-1" data-feather="trending-down"></i>
