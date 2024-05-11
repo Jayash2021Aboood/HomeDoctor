@@ -63,5 +63,3 @@ function deleteWebUser($id)
      return query("DELETE FROM webuser WHERE id = $id");
 }
 ?>
-
-

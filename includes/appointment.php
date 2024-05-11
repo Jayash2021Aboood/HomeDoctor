@@ -89,5 +89,3 @@ function deleteAppointment($id)
      return query("DELETE FROM appointment WHERE id = $id");
 }
 ?>
-
-

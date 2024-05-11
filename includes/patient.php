@@ -96,5 +96,3 @@ function deletePatient($id)
      return query("DELETE FROM patient WHERE id = $id");
 }
 ?>
-
-

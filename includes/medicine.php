@@ -66,5 +66,3 @@ function deleteMedicine($id)
      return query("DELETE FROM medicine WHERE id = $id");
 }
 ?>
-
-

@@ -66,5 +66,3 @@ function deletePayment($id)
      return query("DELETE FROM payment WHERE id = $id");
 }
 ?>
-
-

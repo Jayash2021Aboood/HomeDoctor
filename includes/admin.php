@@ -63,5 +63,3 @@ function deleteAdmin($id)
      return query("DELETE FROM admin WHERE id = $id");
 }
 ?>
-
-

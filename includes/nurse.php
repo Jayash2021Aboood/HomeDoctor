@@ -90,5 +90,3 @@ function deleteNurse($id)
      return query("DELETE FROM nurse WHERE id = $id");
 }
 ?>
-
-
