@@ -57,8 +57,8 @@
       $specialty = $_POST['specialty'];
       $date_of_graduate = $_POST['date_of_graduate'];
       $experience_years = $_POST['experience_years'];
-      $cv_old = $_POST['cv_old'];
-      $cv = uploadImage('cv', DIR_PHOTOES, $cv_old);
+    $cv_old = $_POST['cv_old'];
+    $cv = uploadImage('cv', DIR_PHOTOES, $cv_old);
       $state = $_POST['state'];
     if( empty($first_name)){
       $errors[] = "<li>" . lang("First Name is requierd") . "</li>";
@@ -237,7 +237,7 @@
                                         value="<?php echo $cv;?>" <?php if( !isset($cv) || empty($cv)) echo 'required';?> />
                                 </div>
                                 <!-- Form Group (state)-->
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 d-none">
                                     <label class="small mb-1" for="state"><?php echo lang("State"); ?></label>
                                     <input class="form-control" id="state" name="state" type="text" placeholder="<?php echo lang("State"); ?>"
                                         value="<?php echo $state;?>" required />

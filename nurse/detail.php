@@ -3,7 +3,7 @@
   include('../includes/lib.php');
   include_once('../includes/appointment.php');
   include_once('../includes/patient.php');
-  include_once('../includes/nurse.php');
+  include_once('../includes/doctor.php');
   include_once('../includes/nurse.php');
 
   checkNurseSession();
@@ -132,13 +132,13 @@
                                         <?php }?>
                                     </select>
                                 </div>
-                                <!-- Form Group (nurse_id)-->
+                                <!-- Form Group (doctor_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="nurse_id"><?php echo lang("Nurse"); ?></label>
-                                    <select disabled class="form-select" name="nurse_id" id="nurse_id" >
-                                        <option disabled value=""><?php echo lang("Select a Nurse"); ?>:</option>
-                                        <?php foreach(getAllNurses() as $Nurse) { ?>
-                                        <option <?php if($row['nurse_id'] == $Nurse['id']) echo "selected" ?> value="<?php echo $Nurse['id']; ?>"> <?php echo $Nurse['first_name']; ?>
+                                    <label class="small mb-1" for="doctor_id"><?php echo lang("Doctor"); ?></label>
+                                    <select disabled class="form-select" name="doctor_id" id="doctor_id" >
+                                        <option disabled value=""><?php echo lang("Select a Doctor"); ?>:</option>
+                                        <?php foreach(getAllDoctors() as $Doctor) { ?>
+                                        <option <?php if($row['doctor_id'] == $Doctor['id']) echo "selected" ?> value="<?php echo $Doctor['id']; ?>"> <?php echo $Doctor['first_name']; ?>
                                         </option>
                                         <?php }?>
                                     </select>

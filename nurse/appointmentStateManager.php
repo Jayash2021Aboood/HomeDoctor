@@ -3,12 +3,12 @@
 
   include('../includes/lib.php');
   include_once('../includes/appointment.php');
-  checkAdminSession();
+  checkNurseSession();
 
   //$pageTitle = "State Manager";
   //$row = new Appointment(null);
 
-  $id =  $detail =  $patient_id =  $nurse_id =  $nurse_id =  $appointment_date =  $appointment_time =  $price =  $state =  $created_date = "";
+  $id =  $detail =  $patient_id =  $doctor_id =  $nurse_id =  $appointment_date =  $appointment_time =  $price =  $state =  $created_date = "";
   // include('../template/header.php'); 
   $errors = array();
 
@@ -24,7 +24,7 @@
       $id = $_POST['id'];
       $detail = $_POST['detail'];
       $patient_id = $_POST['patient_id'];
-      $nurse_id = $_POST['nurse_id'];
+      $doctor_id = $_POST['doctor_id'];
       $nurse_id = $_POST['nurse_id'];
       $appointment_date = $_POST['appointment_date'];
       $appointment_time = $_POST['appointment_time'];
@@ -106,7 +106,7 @@
       $id = $_POST['id'];
       $detail = $_POST['detail'];
       $patient_id = $_POST['patient_id'];
-      $nurse_id = $_POST['nurse_id'];
+      $doctor_id = $_POST['doctor_id'];
       $nurse_id = $_POST['nurse_id'];
       $appointment_date = $_POST['appointment_date'];
       $appointment_time = $_POST['appointment_time'];

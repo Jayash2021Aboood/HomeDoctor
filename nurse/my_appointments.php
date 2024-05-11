@@ -3,11 +3,19 @@
   include('../includes/lib.php');
   include_once('../includes/appointment.php');
   include_once('../includes/patient.php');
-  include_once('../includes/nurse.php');
+  include_once('../includes/doctor.php');
   include_once('../includes/nurse.php');
   checkNurseSession();
 
   $pageTitle = lang("My Appointments");
+
+  $state = "";
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if(isset($_GET['state']) && !empty($_GET['state'])){
+        $state = $_GET['state'];
+    }
+  }
+
 ?>
 
 <?php include('../template/header.php'); ?>
@@ -25,12 +33,39 @@
                             <?php echo lang("My Appointments"); ?>
                         </h1>
                     </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=">
+                            <?php echo lang("All"); ?>
+                        </a>
+                    </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=request">
+                            <?php echo lang("Pending Appointments"); ?>
+                        </a>
+                    </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=reject">
+                            <?php echo lang("Rejected Appointments"); ?>
+                        </a>
+                    </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=accept">
+                            <?php echo lang("Accepted Appointments"); ?>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <!-- Main page content-->
-    <?php $all = getAllAppointments(); ?>
+    <?php 
+        if(!empty($state)){
+            $all = select("SELECT * FROM appointment WHERE state like '$state'");
+        }
+        else{
+            $all = getAllAppointments(); 
+        }
+    ?>
     <div class="container-fluid px-4">
         <div class="card">
             <div class="card-body">
@@ -40,7 +75,7 @@
                             <th><?php echo lang("ID"); ?></th>
                             <th><?php echo lang("Detail"); ?></th>
                             <th><?php echo lang("Patient"); ?></th>
-                            <th class="d-none"><?php echo lang("Nurse"); ?></th>
+                            <th class="d-none"><?php echo lang("Doctor"); ?></th>
                             <th class="d-none"><?php echo lang("Nurse"); ?></th>
                             <th><?php echo lang("Appointment Date"); ?></th>
                             <th><?php echo lang("Appointment Time"); ?></th>
@@ -55,7 +90,7 @@
                                             <th>ID</th>
                                             <th>Detail</th>
                                             <th>Patient</th>
-                                            <th>Nurse</th>
+                                            <th>Doctor</th>
                                             <th>Nurse</th>
                                             <th>Appointment Date</th>
                                             <th>Appointment Time</th>
@@ -98,9 +133,9 @@
                                     ?>
                             </td>
                                 <td class="d-none"> <?php
-                                if(!is_null($row['nurse_id'])){
-                                    $Nurse = getNurseById($row['nurse_id']) [0];
-                                    echo$Nurse['first_name']; 
+                                if(!is_null($row['doctor_id'])){
+                                    $Doctor = getDoctorById($row['doctor_id']) [0];
+                                    echo$Doctor['first_name']; 
                                 }
                                     ?>
                             </td>

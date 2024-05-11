@@ -126,11 +126,11 @@
                                     <input class="form-control" id="patient_id" name="patient_id" type="text" placeholder="<?php echo lang("Patient"); ?>"
                                         value="<?php echo $row['patient_id'];?>" readonly />
                                 </div>
-                                <!-- Form Group (nurse_id)-->
+                                <!-- Form Group (doctor_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="nurse_id"><?php echo lang("Nurse"); ?></label>
-                                    <input class="form-control" id="nurse_id" name="nurse_id" type="text" placeholder="<?php echo lang("Nurse"); ?>"
-                                        value="<?php echo $row['nurse_id'];?>" readonly />
+                                    <label class="small mb-1" for="doctor_id"><?php echo lang("Doctor"); ?></label>
+                                    <input class="form-control" id="doctor_id" name="doctor_id" type="text" placeholder="<?php echo lang("Doctor"); ?>"
+                                        value="<?php echo $row['doctor_id'];?>" readonly />
                                 </div>
                                 <!-- Form Group (nurse_id)-->
                                 <div class="col-md-4 mb-3">
