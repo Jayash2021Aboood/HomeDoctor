@@ -113,13 +113,13 @@
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <input type="hidden" name="id" id="id" value="<?php echo $row['id'];?>" readonly />
-                                <!-- Form Group (appointment_id )-->
+                                <!-- Form Group (appointment_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="appointment_id "><?php echo lang("Appointment"); ?></label>
-                                    <select disabled class="form-select" name="appointment_id " id="appointment_id " required>
+                                    <label class="small mb-1" for="appointment_id"><?php echo lang("Appointment"); ?></label>
+                                    <select disabled class="form-select" name="appointment_id" id="appointment_id" required>
                                         <option disabled value=""><?php echo lang("Select a Appointment"); ?>:</option>
                                         <?php foreach(getAllAppointments() as $Appointment) { ?>
-                                        <option <?php if($row['appointment_id '] == $Appointment['id']) echo "selected" ?> value="<?php echo $Appointment['id']; ?>"> <?php echo $Appointment['detail']; ?>
+                                        <option <?php if($row['appointment_id'] == $Appointment['id']) echo "selected" ?> value="<?php echo $Appointment['id']; ?>"> <?php echo $Appointment['detail']; ?>
                                         </option>
                                         <?php }?>
                                     </select>

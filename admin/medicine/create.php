@@ -18,13 +18,13 @@
     {
 
 
-      $appointment_id  = $_POST['appointment_id '];
+      $appointment_id = $_POST['appointment_id'];
 
       $name = $_POST['name'];
 
       $detail = $_POST['detail'];
 
-      if( empty($appointment_id )){
+      if( empty($appointment_id)){
         $errors[] = "<li>" . lang("Appointment is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Appointment is requierd") . "</li>";
         }
@@ -40,7 +40,7 @@
       if(count($errors) == 0)
       {
         $add = addMedicine(
-                                    $appointment_id ,
+                                    $appointment_id,
                                     $name,
                                     $detail,
                                     );
@@ -101,10 +101,10 @@
                         <form action="" method="POST" enctype="multipart/form-data">
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
-                                <!-- Form Group (appointment_id )-->
+                                <!-- Form Group (appointment_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="appointment_id "><?php echo lang("Appointment"); ?></label>
-                                    <select class="form-select" name="appointment_id " id="appointment_id " required>
+                                    <label class="small mb-1" for="appointment_id"><?php echo lang("Appointment"); ?></label>
+                                    <select class="form-select" name="appointment_id" id="appointment_id" required>
                                         <option selected disabled value=""><?php echo lang("Select a Appointment"); ?>:</option>
                                         <?php foreach(getAllAppointments() as $Appointment) { ?>
                                         <option value="<?php echo $Appointment['id']; ?>"> <?php echo $Appointment['detail']; ?>

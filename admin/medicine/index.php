@@ -84,7 +84,7 @@
                         <tr>
                                 <td> <?php echo($row['id']); ?> </td>
                                   <td> <?php
-                                    $Appointment = getAppointmentById($row['appointment_id ']) [0];
+                                    $Appointment = getAppointmentById($row['appointment_id']) [0];
                                     echo$Appointment['detail']; 
                                     ?>
                             </td>

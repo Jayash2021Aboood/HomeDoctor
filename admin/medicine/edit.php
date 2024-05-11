@@ -8,7 +8,7 @@
 
   $pageTitle = lang("Edit Medicine");
   //$row = new Medicine(null);
-   $id =  $appointment_id  =  $name =  $detail = "";
+   $id =  $appointment_id =  $name =  $detail = "";
   //$id = $name = $manager = $managerPhone = $agent = $agentPhone = $kindergarten = $earlyChildhood = $elementary = $intermediate = $secondary = $active = "";
   include('../../template/header.php'); 
   $errors = array();
@@ -26,7 +26,7 @@
       {
         $row = $result[0];
         $id = $row['id'];
-        $appointment_id  = $row['appointment_id '];
+        $appointment_id = $row['appointment_id'];
         $name = $row['name'];
         $detail = $row['detail'];
       }
@@ -50,10 +50,10 @@
     if(isset($_POST['updateMedicine']))
     {
         $id = $_POST['id'];
-        $appointment_id  = $_POST['appointment_id '];
+        $appointment_id = $_POST['appointment_id'];
         $name = $_POST['name'];
         $detail = $_POST['detail'];
-      if( empty($appointment_id )){
+      if( empty($appointment_id)){
         $errors[] = "<li>" . lang("Appointment is requierd") . "</li>";
         $_SESSION["fail"] .= "<li>" . lang("Appointment is requierd") . "</li>";
         }
@@ -73,7 +73,7 @@
         if( count( $result ) > 0)
           $row = $result[0];
         
-        $update = updateMedicine( $id,  $appointment_id ,  $name,  $detail, );
+        $update = updateMedicine( $id,  $appointment_id,  $name,  $detail, );
         if($update ==  true)
         {
   
@@ -134,13 +134,13 @@
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <input type="hidden" name="id" id="id" value="<?php echo $id;?>" />
-                                <!-- Form Group (appointment_id )-->
+                                <!-- Form Group (appointment_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="appointment_id "><?php echo lang("Appointment"); ?></label>
-                                    <select class="form-select" name="appointment_id " id="appointment_id " required>
+                                    <label class="small mb-1" for="appointment_id"><?php echo lang("Appointment"); ?></label>
+                                    <select class="form-select" name="appointment_id" id="appointment_id" required>
                                         <option disabled value=""><?php echo lang("Select a Appointment"); ?>:</option>
                                         <?php foreach(getAllAppointments() as $Appointment) { ?>
-                                        <option <?php if($appointment_id  == $Appointment['id']) echo "selected" ?> value="<?php echo $Appointment['id']; ?>"> <?php echo $Appointment['detail']; ?>
+                                        <option <?php if($appointment_id == $Appointment['id']) echo "selected" ?> value="<?php echo $Appointment['id']; ?>"> <?php echo $Appointment['detail']; ?>
                                         </option>
                                         <?php }?>
                                     </select>

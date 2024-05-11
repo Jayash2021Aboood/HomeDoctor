@@ -114,11 +114,11 @@
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <input type="hidden" name="id" id="id" value="<?php echo $row['id'];?>" readonly />
-                                <!-- Form Group (appointment_id )-->
+                                <!-- Form Group (appointment_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="appointment_id "><?php echo lang("Appointment"); ?></label>
-                                    <input class="form-control" id="appointment_id " name="appointment_id " type="text" placeholder="<?php echo lang("Appointment"); ?>"
-                                        value="<?php echo $row['appointment_id '];?>" readonly />
+                                    <label class="small mb-1" for="appointment_id"><?php echo lang("Appointment"); ?></label>
+                                    <input class="form-control" id="appointment_id" name="appointment_id" type="text" placeholder="<?php echo lang("Appointment"); ?>"
+                                        value="<?php echo $row['appointment_id'];?>" readonly />
                                 </div>
                                 <!-- Form Group (name)-->
                                 <div class="col-md-4 mb-3">
