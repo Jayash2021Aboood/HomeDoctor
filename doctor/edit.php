@@ -173,7 +173,7 @@
                                 </div>
                                 <!-- Form Group (patient_id)-->
                                 <div class="col-md-4 mb-3">
-                                    <a href="patient_details.php?id=<?php echo $patient_id; ?>" class="small mb-1" for="patient_id"><?php echo lang("Patient"); ?></a>
+                                    <a href="patient_details.php?id=<?php echo $patient_id; ?>&appointment_id=<?php echo $id;?>" class="small mb-1" for="patient_id"><?php echo lang("Patient Details"); ?></a>
                                     <select class="form-select" name="patient_id" id="patient_id" required>
                                         <option disabled value=""><?php echo lang("Select a Patient"); ?>:</option>
                                         <?php foreach(getAllPatients() as $Patient) { ?>
@@ -278,7 +278,6 @@
                             <th><?php echo lang("ID"); ?></th>
                             <th><?php echo lang("Name"); ?></th>
                             <th><?php echo lang("Detail"); ?></th>
-                            <th><?php echo lang("Actions"); ?></th>
                         </tr>
                     </thead>
                     <!-- <tfoot>
@@ -319,20 +318,6 @@
                                 <td> <?php echo($row['name']); ?> </td>
                                   <td> <?php echo($row['detail']); ?> </td>
   
-                            <td>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2"
-                                    href="edit.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-primary" data-feather="edit"></i>
-                                </a>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
-                                    href="delete.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-danger" data-feather="trash-2"></i>
-                                </a>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
-                                    href="detail.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-success" data-feather="eye"></i>
-                                </a>
-                            </td>
                         </tr>
                         <?php }?>
 

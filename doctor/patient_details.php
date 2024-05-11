@@ -5,11 +5,19 @@
 
   checkDoctorSession();
 
+
+  $appointment_id= 0;
+
   $pageTitle = lang("Patient Details");
   $row = new Patient(null);
   include('../template/header.php');
 
-
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if(isset($_GET['appointment_id'])){
+        $appointment_id= $_GET['appointment_id'];
+        } 
+    }
+  
   if ($_SERVER['REQUEST_METHOD'] === 'GET') 
   {
 
@@ -90,12 +98,6 @@
                             <?php echo lang("Patient Details"); ?>
                         </h1>
                     </div>
-                    <div class="col-12 col-xl-auto mb-3">
-                        <a class="btn btn-sm btn-light text-primary" href="index.php">
-                            <i class="me-1" data-feather="arrow-left"></i>
-                            <?php echo lang("Back to Patients List"); ?>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -135,12 +137,6 @@
                                     <label class="small mb-1" for="email"><?php echo lang("Email"); ?></label>
                                     <input class="form-control" id="email" name="email" type="email" placeholder="<?php echo lang("Email"); ?>"
                                         value="<?php echo $row['email'];?>" readonly />
-                                </div>
-                                <!-- Form Group (password)-->
-                                <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="password"><?php echo lang("Password"); ?></label>
-                                    <input class="form-control" id="password" name="password" type="password" placeholder="<?php echo lang("Password"); ?>"
-                                        value="<?php echo $row['password'];?>" readonly />
                                 </div>
                                 <!-- Form Group (location)-->
                                 <div class="col-md-4 mb-3">
@@ -193,8 +189,7 @@
  
                             </div>
                             <!-- Submit button-->
-                            <a href="edit.php?id=<?php echo $row['id'];?>" class="btn btn-success" type="button"><?php echo lang("Edit"); ?></a>
-                            <a href="index.php" class="btn btn-primary" type="button"><?php echo lang("Back To List"); ?></a>
+                            <a href="edit.php?id=<?php echo $appointment_id; ?>" class="btn btn-danger" type="button"><?php echo lang("Back To List"); ?></a>
                         </form>
                     </div>
                 </div>
