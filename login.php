@@ -87,72 +87,6 @@ if (isset($_SESSION['user']))
                 $errors[] = lang("No Admin found with this data");
             }
         }
-        else if($userType == 'e')
-        {
-            $employees = select("select * from employee where email like '$email' and password like '$password';");
-            if(count($employees) > 0)
-            {
-
-                $_SESSION["userID"] = $employees[0]['id'];
-                $_SESSION["user"] = $email;
-                $_SESSION["userType"] = 'e';
-                $_SESSION['success'] = "Welcome ".$employees[0]['name'] ;
-                header('Location: employee/index.php');
-                exit();
-
-                // if($employees[0]['state'] == 'reject'){
-                //     $_SESSION["message"] = "your account has been rejected ... contact to adminstrator";
-                //     $_SESSION["fail"] = "your account has been rejected ... contact to adminstrator";
-                //     header('Location: login.php');
-                //     exit();
-                // }
-                // else if($employees[0]['state'] == 'request'){
-                //     $_SESSION["message"] = "your account not accepted Yet ... contact to adminstrator";
-                //     $_SESSION["fail"] = "your account not accepted Yet ... contact to adminstrator";
-                //     header('Location: login.php');
-                //     exit();
-                // }
-                // else if($employees[0]['state'] == 'accept')
-                // {
-                //     $_SESSION["userID"] = $employees[0]['id'];
-                //     $_SESSION["user"] = $email;
-                //     $_SESSION["userType"] = 'e';
-                //     $_SESSION['success'] = "Welcome ".$employees[0]['first_name'] ." ". $employees[0]['last_name'] ;
-                //     header('Location: employee/index.php');
-                // }
-                // else
-                // {
-                //     $_SESSION["message"] = "UnKnow employee state ... contact admininstrator";
-                //     $_SESSION["fail"] = "UnKnow employee state ... contact admininstrator";
-                //     $errors[] = "UnKnow employee state ... contact admininstrator";
-                // }
-            }
-            else
-            {
-                $_SESSION["message"] = lang("No Employee found with this data");
-                $_SESSION["fail"] = lang("No Employee found with this data");
-                $errors[] = lang("No Employee found with this data");
-            }
-        }
-        else if($userType == 's')
-        {
-            $students = select("select * from student where email like '$email' and password like '$password';");
-            if(count($students) > 0)
-            {
-                    $_SESSION["userID"] = $students[0]['id'];
-                    $_SESSION["user"] = $email;
-                    $_SESSION["userType"] = 's';
-                    $_SESSION['success'] = lang("Welcome ") . $students[0]['name'] ;
-                    header('Location: student/index.php');
-                    exit();
-            }
-            else
-            {
-                $_SESSION["message"] = lang("No Student found with this data");
-                $_SESSION["fail"] = lang("No Student found with this data");
-                $errors[] = lang("No Student found with this data");
-            }
-        }
         else if($userType == 'p')
         {
             $patients = select("select * from patient where email like '$email' and password like '$password';");
@@ -161,7 +95,7 @@ if (isset($_SESSION['user']))
                     $_SESSION["userID"] = $patients[0]['id'];
                     $_SESSION["user"] = $email;
                     $_SESSION["userType"] = 'p';
-                    $_SESSION['success'] = lang("Welcome ") . $patients[0]['name'] ;
+                    $_SESSION['success'] = "Welcome ".$patients[0]['first_name'] ." ". $patients[0]['last_name'] ;
                     header('Location: patient/index.php');
                     exit();
             }
@@ -197,6 +131,7 @@ if (isset($_SESSION['user']))
                         $_SESSION["userType"] = 'd';
                         $_SESSION['success'] = "Welcome ".$doctors[0]['first_name'] ." ". $doctors[0]['last_name'] ;
                         header('Location: doctor/index.php');
+                        exit();
                     }
                     else
                     {
@@ -244,6 +179,7 @@ if (isset($_SESSION['user']))
                     $_SESSION["userType"] = 'n';
                     $_SESSION['success'] = "Welcome ".$nurses[0]['first_name'] ." ". $nurses[0]['last_name'] ;
                     header('Location: nurse/index.php');
+                    exit();
                 }
                 else
                 {
