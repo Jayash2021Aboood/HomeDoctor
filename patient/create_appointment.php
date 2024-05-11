@@ -125,7 +125,7 @@
                         </h1>
                     </div>
                     <div class="col-12 col-xl-auto mb-3">
-                        <a class="btn btn-sm btn-light text-primary" href="index.php">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php">
                             <i class="me-1" data-feather="arrow-left"></i>
                             <?php echo lang("Back to Appointments List"); ?>
                         </a>
@@ -169,7 +169,7 @@
                                     <select class="form-select" name="doctor_id" id="doctor_id" >
                                         <option selected value=""><?php echo lang("Select a Doctor"); ?>:</option>
                                         <?php foreach(getAllDoctors() as $Doctor) { ?>
-                                        <option value="<?php echo $Doctor['id']; ?>"> <?php echo $Doctor['first_name']; ?>
+                                        <option value="<?php echo $Doctor['id']; ?>"> <?php echo $Doctor['first_name'] .' '. $Doctor['last_name']; ?>
                                         </option>
                                         <?php }?>
                                     </select>
@@ -181,7 +181,7 @@
                                     <select class="form-select" name="nurse_id" id="nurse_id" >
                                         <option selected value=""><?php echo lang("Select a Nurse"); ?>:</option>
                                         <?php foreach(getAllNurses() as $Nurse) { ?>
-                                        <option value="<?php echo $Nurse['id']; ?>"> <?php echo $Nurse['first_name']; ?>
+                                        <option value="<?php echo $Nurse['id']; ?>"> <?php echo $Nurse['first_name'] .' '. $Nurse['last_name']; ?>
                                         </option>
                                         <?php }?>
                                     </select>
@@ -216,7 +216,7 @@
                             </div>
                             <!-- Submit button-->
                             <button name="addAppointment" class="btn btn-success" type="submit"><?php echo lang("Save"); ?></button>
-                            <a href="index.php" class="btn btn-danger" type="button"><?php echo lang("Back To List"); ?></a>
+                            <a href="my_appointments.php" class="btn btn-danger" type="button"><?php echo lang("Back To List"); ?></a>
                         </form>
                     </div>
                 </div>

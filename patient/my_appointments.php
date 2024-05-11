@@ -8,6 +8,14 @@
   checkPatientSession();
 
   $pageTitle = lang("My Appointments");
+
+  $state = "";
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if(isset($_GET['state']) && !empty($_GET['state'])){
+        $state = $_GET['state'];
+    }
+  }
+
 ?>
 
 <?php include('../template/header.php'); ?>
@@ -26,9 +34,29 @@
                         </h1>
                     </div>
                     <div class="col-12 col-xl-auto mb-3">
-                        <a class="btn btn-sm btn-light text-primary" href="create.php">
+                        <a class="btn btn-sm btn-light text-primary" href="create_appointment.php">
                             <i class="me-1" data-feather="plus"></i>
                             <?php echo lang("Create New"); ?>
+                        </a>
+                    </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=">
+                            <?php echo lang("All"); ?>
+                        </a>
+                    </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=request">
+                            <?php echo lang("Pending Appointments"); ?>
+                        </a>
+                    </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=reject">
+                            <?php echo lang("Rejected Appointments"); ?>
+                        </a>
+                    </div>
+                    <div class="col-12 col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="my_appointments.php?state=accept">
+                            <?php echo lang("Accepted Appointments"); ?>
                         </a>
                     </div>
                 </div>
@@ -36,7 +64,14 @@
         </div>
     </header>
     <!-- Main page content-->
-    <?php $all = getAllAppointments(); ?>
+    <?php 
+        if(!empty($state)){
+            $all = select("SELECT * FROM appointment WHERE state like '$state'");
+        }
+        else{
+            $all = getAllAppointments(); 
+        }
+    ?>
     <div class="container-fluid px-4">
         <div class="card">
             <div class="card-body">
@@ -53,7 +88,6 @@
                             <th><?php echo lang("Price"); ?></th>
                             <th><?php echo lang("State"); ?></th>
                             <th><?php echo lang("Created Date"); ?></th>
-                            <th><?php echo lang("Actions"); ?></th>
                         </tr>
                     </thead>
                     <!-- <tfoot>
@@ -122,21 +156,6 @@
                                   <td> <?php echo($row['price']); ?> </td>
                                   <td> <?php echo($row['state']); ?> </td>
                                   <td> <?php echo($row['created_date']); ?> </td>
-  
-                            <td>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2"
-                                    href="edit.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-primary" data-feather="edit"></i>
-                                </a>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
-                                    href="delete.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-danger" data-feather="trash-2"></i>
-                                </a>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
-                                    href="detail.php?id=<?php echo($row['id']); ?>">
-                                    <i class="text-success" data-feather="eye"></i>
-                                </a>
-                            </td>
                         </tr>
                         <?php }?>
 
