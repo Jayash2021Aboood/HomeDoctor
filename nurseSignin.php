@@ -223,8 +223,12 @@
                                 <!-- Form Group (specialty)-->
                                 <div class="col-md-4 mb-3">
                                     <label class="small mb-1" for="specialty">Specialty</label>
-                                    <input class="form-control" id="specialty" name="specialty" type="text"
-                                        placeholder="Specialty" value="" required />
+                                    <select id="specialty" name="specialty" >
+                                        <option value="dentistry"><?php echo lang("dentistry") ?></option>
+                                        <option value="natural therapy"><?php echo lang("natural therapy") ?></option>
+                                        <option value="obstetrics and gynecology"><?php echo lang("obstetrics and gynecology") ?></option>
+                                        <option value="padiatrics"><?php echo lang("padiatrics") ?></option>
+                                    </select>
                                 </div>
                                 <!-- Form Group (date_of_graduate)-->
                                 <div class="col-md-4 mb-3">
