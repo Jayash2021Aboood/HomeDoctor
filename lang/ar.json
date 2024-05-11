@@ -252,7 +252,7 @@
     "Appointments": "المواعيد",
     "Doctors": "الاطباء",
     "Medicines": "الأدوية",
-    "Nurses": "التمريض",
+    "Nurses": "الممرضين",
     "Patients": "المرضى",
     "Payments": "المدفوعات",
     "Appointment List": "قائمة المواعيد",
@@ -338,5 +338,9 @@
     "Accepted Appointments" : "المعتمدة",
     "Earnings Money" : "اجمالي الدخل",
     "Medicine Added successfuly!" : "تم اضافة الدواء بنجاح",
-    "There is No data for this id" : "لاتوجد اي بيانات لهذا الرقم "
+    "There is No data for this id" : "لاتوجد اي بيانات لهذا الرقم ",
+    "Total Earnings" : "اجمالي الدخل",
+    "Edit Medicine" : "تعديل الدواء",
+    "Delete Medicine" : "حذف الدواء"
+    
 }
