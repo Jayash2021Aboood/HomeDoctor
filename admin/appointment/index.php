@@ -8,6 +8,14 @@
   checkAdminSession();
 
   $pageTitle = lang("Appointments");
+
+  $state = "";
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if(isset($_GET['state']) && !empty($_GET['state'])){
+        $state = $_GET['state'];
+    }
+  }
+
 ?>
 
 <?php include('../../template/header.php'); ?>
@@ -31,12 +39,39 @@
                             <?php echo lang("Create New"); ?>
                         </a>
                     </div>
+                    <div class="col col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="index.php?state=">
+                            <?php echo lang("All"); ?>
+                        </a>
+                    </div>
+                    <div class="col col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="index.php?state=request">
+                            <?php echo lang("Pending Appointments"); ?>
+                        </a>
+                    </div>
+                    <div class="col col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="index.php?state=reject">
+                            <?php echo lang("Rejected Appointments"); ?>
+                        </a>
+                    </div>
+                    <div class="col col-xl-auto mb-3">
+                        <a class="btn btn-sm btn-light text-primary" href="index.php?state=accept">
+                            <?php echo lang("Accepted Appointments"); ?>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <!-- Main page content-->
-    <?php $all = getAllAppointments(); ?>
+    <?php 
+        if(!empty($state)){
+            $all = select("SELECT * FROM appointment WHERE state like '$state'");
+        }
+        else{
+            $all = getAllAppointments(); 
+        }
+    ?>
     <div class="container-fluid px-4">
         <div class="card">
             <div class="card-body">
