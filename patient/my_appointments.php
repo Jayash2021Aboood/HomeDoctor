@@ -156,6 +156,13 @@
                                   <td> <?php echo($row['price']); ?> </td>
                                   <td> <?php echo($row['state']); ?> </td>
                                   <td> <?php echo($row['created_date']); ?> </td>
+                                  <td>
+                                
+                                <a class="btn btn-datatable btn-icon btn-transparent-dark"
+                                    href="edit.php?id=<?php echo($row['id']); ?>">
+                                    <i class="text-success" data-feather="eye"></i>
+                                </a>
+                            </td>
                         </tr>
                         <?php }?>
 
