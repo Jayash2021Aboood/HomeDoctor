@@ -12,16 +12,6 @@ if (isset($_SESSION['user']))
             header('Location: admin/index.php');
             exit();
         }
-        else if($_SESSION['userType'] == 'e')
-        {
-            header('Location: employee/index.php');
-            exit();
-        }
-        else if($_SESSION['userType'] == 's')
-        {
-            header('Location: student/index.php');
-            exit();
-        }
         else if($_SESSION['userType'] == 'p')
         {
             header('Location: patient/index.php');

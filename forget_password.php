@@ -14,16 +14,6 @@ if (isset($_SESSION['user']))
             header('Location: admin/index.php');
             exit();
         }
-        else if($_SESSION['userType'] == 'e')
-        {
-            header('Location: employee/index.php');
-            exit();
-        }
-        else if($_SESSION['userType'] == 's')
-        {
-            header('Location: student/index.php');
-            exit();
-        }
         else if($_SESSION['userType'] == 'p')
         {
             header('Location: patient/index.php');
@@ -71,36 +61,6 @@ if (isset($_SESSION['user']))
             {
                 $result = $admins[0]['email'];
                 $password = $admins[0]['password'];
-            }
-            else
-            {
-                $_SESSION["message"] = lang("user not found");
-                $_SESSION["fail"] = lang("user not found");
-                $errors[] = lang("user not found");
-            }
-        }
-        else if($userType == 'e')
-        {
-            $employees = select("select * from employee where email like '$email';");
-            if(count($employees) > 0)
-            {
-                $result = $employees[0]['email'];
-                $password = $employees[0]['password'];
-            }
-            else
-            {
-                $_SESSION["message"] = lang("user not found");
-                $_SESSION["fail"] = lang("user not found");
-                $errors[] = lang("user not found");
-            }
-        }
-        else if($userType == 's')
-        {
-            $students = select("select * from student where email like '$email';");
-            if(count($students) > 0)
-            {
-                $result = $students[0]['email'];
-                $password = $students[0]['password'];
             }
             else
             {
