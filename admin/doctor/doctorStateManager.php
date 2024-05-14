@@ -63,8 +63,8 @@
         $_SESSION["fail"] .= "<li>Date of Graduate is requierd.</li>";
         }
       if( empty($experience_years)){
-        $errors[] = "<li>Experience Years is requierd.</li>";
-        $_SESSION["fail"] .= "<li>Experience Years is requierd.</li>";
+        $errors[] = "<li>Joined Date is requierd.</li>";
+        $_SESSION["fail"] .= "<li>Joined Date is requierd.</li>";
         }
       if( empty($cv)){
         $errors[] = "<li>CV is requierd.</li>";
@@ -161,8 +161,8 @@
       $_SESSION["fail"] .= "<li>Date of Graduate is requierd.</li>";
       }
     if( empty($experience_years)){
-      $errors[] = "<li>Experience Years is requierd.</li>";
-      $_SESSION["fail"] .= "<li>Experience Years is requierd.</li>";
+      $errors[] = "<li>Joined Date is requierd.</li>";
+      $_SESSION["fail"] .= "<li>Joined Date is requierd.</li>";
       }
     if( empty($cv)){
       $errors[] = "<li>CV is requierd.</li>";

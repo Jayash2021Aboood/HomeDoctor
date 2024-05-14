@@ -164,8 +164,8 @@
                                 </div>
                                 <!-- Form Group (experience_years)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="experience_years"><?php echo lang("Experience Years"); ?></label>
-                                    <input class="form-control" id="experience_years" name="experience_years" type="text" placeholder="<?php echo lang("Experience Years"); ?>"
+                                    <label class="small mb-1" for="experience_years"><?php echo lang("Joined Date"); ?></label>
+                                    <input class="form-control" id="experience_years" name="experience_years" type="text" placeholder="<?php echo lang("Joined Date"); ?>"
                                         value="<?php echo $row['experience_years'];?>" readonly />
                                 </div>
                                 <!-- Form Group (cv)-->

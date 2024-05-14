@@ -275,7 +275,7 @@
     "Location": "الموقع",
     "Specialty": "التخصص",
     "Date of Graduate": "تاريخ التخرج",
-    "Experience Years": "سنوات الخبره",
+    "Joined Date": "تاريخ الانظمام",
     "CV": "السيرة الذاتيه",
     "Add Doctor": "إضافة طبيب",
     "Back to Doctors List": "العودة الى قائمة الاطباء",
@@ -341,6 +341,11 @@
     "There is No data for this id" : "لاتوجد اي بيانات لهذا الرقم ",
     "Total Earnings" : "اجمالي الدخل",
     "Edit Medicine" : "تعديل الدواء",
-    "Delete Medicine" : "حذف الدواء"
-    
+    "Delete Medicine" : "حذف الدواء",
+    "Confirm Password" : "تأكيد كلمة المرور",
+    "Dentistry" : "طب الاسنان",
+    "Natural Therapy" : "العلاج الطبيعي",
+    "Obstetrics and Gynecology" : "النساء والولادة",
+    "Padiatrics" : "طب الاطفال",
+    "Have an account? Go to login" : "لديك حساب بالفعل؟ قم بتسجيل الدخول"
 }

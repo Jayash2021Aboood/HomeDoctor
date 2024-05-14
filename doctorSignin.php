@@ -73,8 +73,8 @@
         $_SESSION["fail"] .= "<li>Date of Graduate is requierd.</li>";
         }
       if( empty($experience_years)){
-        $errors[] = "<li>Experience Years is requierd.</li>";
-        $_SESSION["fail"] .= "<li>Experience Years is requierd.</li>";
+        $errors[] = "<li>Joined Date is requierd.</li>";
+        $_SESSION["fail"] .= "<li>Joined Date is requierd.</li>";
         }
       if( empty($cv)){
         $errors[] = "<li>CV is requierd.</li>";
@@ -171,7 +171,7 @@
                 <!-- Basic registration form-->
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                     <div class="card-header justify-content-center">
-                        <h3 class="fw-light my-4">Create Doctor Account</h3>
+                        <h3 class="fw-light my-4"><?php echo lang("Create Doctor Account");?></h3>
                     </div>
                     <div class="card-body">
                         <!-- Registration form-->
@@ -180,83 +180,81 @@
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (first_name)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="first_name">First Name</label>
+                                    <label class="small mb-1" for="first_name"><?php echo lang("First Name");?></label>
                                     <input class="form-control" id="first_name" name="first_name" type="text"
-                                        placeholder="First Name" value="" required />
+                                        placeholder="<?php echo lang("First Name");?>" value="" required />
                                 </div>
                                 <!-- Form Group (last_name)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="last_name">Last Name</label>
+                                    <label class="small mb-1" for="last_name"><?php echo lang("Last Name");?></label>
                                     <input class="form-control" id="last_name" name="last_name" type="text"
-                                        placeholder="Last Name" value="" required />
+                                        placeholder="<?php echo lang("Last Name");?>" value="" required />
                                 </div>
                                 <!-- Form Group (phone)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="phone">Phone</label>
-                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="Phone"
+                                    <label class="small mb-1" for="phone"><?php echo lang("Phone");?></label>
+                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="<?php echo lang("Phone");?>"
                                         value="" required />
                                 </div>
                                 <!-- Form Group (email)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="email">Email</label>
-                                    <input class="form-control" id="email" name="email" type="email" placeholder="Email"
+                                    <label class="small mb-1" for="email"><?php echo lang("Email");?></label>
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="<?php echo lang("Email");?>"
                                         value="" required />
                                 </div>
                                 <!-- Form Group (password)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="password">Password</label>
+                                    <label class="small mb-1" for="password"><?php echo lang("Password");?></label>
                                     <input class="form-control" id="password" name="password" type="password"
-                                        placeholder="Password" value="" required />
+                                        placeholder="<?php echo lang("Password");?>" value="" required />
                                 </div>
                                 <!-- Form Group (confirm_password)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="confirm_password">Confirm Password</label>
+                                    <label class="small mb-1" for="confirm_password"><?php echo lang("Confirm Password");?></label>
                                     <input class="form-control" id="confirm_password" name="confirm_password"
-                                        type="password" placeholder="Confirm Password" value="" required />
+                                        type="password" placeholder="<?php echo lang("Confirm Password");?>" value="" required />
                                 </div>
                                 <!-- Form Group (location)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="location">Location</label>
-                                    <input class="form-control" id="location" name="location" type="text" placeholder="Location"
+                                    <label class="small mb-1" for="location"><?php echo lang("Location");?></label>
+                                    <input class="form-control" id="location" name="location" type="text" placeholder="<?php echo lang("Location");?>"
                                         value="" />
                                 </div>
-                                
                                 <!-- Form Group (specialty)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="specialty">Specialty</label>
-                                    <select id="specialty" name="specialty" >
-                                        <option value="dentistry"><?php echo lang("dentistry") ?></option>
-                                        <option value="natural therapy"><?php echo lang("natural therapy") ?></option>
-                                        <option value="obstetrics and gynecology"><?php echo lang("obstetrics and gynecology") ?></option>
-                                        <option value="padiatrics"><?php echo lang("padiatrics") ?></option>
+                                    <label class="small mb-1" for="specialty"><?php echo lang("Specialty");?></label>
+                                    <select class="form-select" id="specialty" name="specialty" >
+                                        <option value="Dentistry"><?php echo lang("Dentistry") ?></option>
+                                        <option value="Natural Therapy"><?php echo lang("Natural Therapy") ?></option>
+                                        <option value="Obstetrics and Gynecology"><?php echo lang("Obstetrics and Gynecology") ?></option>
+                                        <option value="Padiatrics"><?php echo lang("Padiatrics") ?></option>
                                     </select>
-
                                 </div>
                                 <!-- Form Group (date_of_graduate)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="date_of_graduate">Date of Graduate</label>
+                                    <label class="small mb-1" for="date_of_graduate"><?php echo lang("Date of Graduate") ?></label>
                                     <input class="form-control" id="date_of_graduate" name="date_of_graduate"
-                                        type="date" placeholder="Date of Graduate" value="" required />
+                                        type="date" placeholder="<?php echo lang("Date of Graduate") ?>" value="" required />
                                 </div>
                                 <!-- Form Group (experience_years)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="experience_years">Experience Years</label>
+                                    <label class="small mb-1" for="experience_years"><?php echo lang("Joined Date") ?></label>
                                     <input class="form-control" id="experience_years" name="experience_years"
-                                        type="text" placeholder="Experience Years" value="" required />
+                                        type="text" placeholder="<?php echo lang("Joined Date") ?>" value="" required />
                                 </div>
                                 <!-- Form Group (cv)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="cv">CV</label>
-                                    <input class="form-control" id="cv" name="cv" type="file" placeholder="CV" value=""
+                                    <label class="small mb-1" for="cv"><?php echo lang("CV") ?></label>
+                                    <input class="form-control" id="cv" name="cv" type="file" placeholder="<?php echo lang("CV") ?>" value=""
                                         required />
                                 </div>
                             </div>
                             <!-- Submit button-->
-                            <button name="createAccount" class="btn btn-success" type="submit">Create Account</button>
+                            <button name="createAccount" class="btn btn-success" type="submit"><?php echo lang("Create Account") ?></button>
                         </form>
                     </div>
                     <div class="card-footer text-center">
-                        <div class="small"><a href="login.php">Have an account? Go to login</a></div>
+                        <div class="small"><a href="login.php"><?php echo lang("Have an account? Go to login") ?></a></div>
                     </div>
                 </div>
             </div>

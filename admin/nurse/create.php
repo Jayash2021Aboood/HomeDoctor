@@ -72,8 +72,8 @@
         $_SESSION["fail"] .= "<li>" . lang("Date of Graduate is requierd") . "</li>";
         }
       if( empty($experience_years)){
-        $errors[] = "<li>" . lang("Experience Years is requierd") . "</li>";
-        $_SESSION["fail"] .= "<li>" . lang("Experience Years is requierd") . "</li>";
+        $errors[] = "<li>" . lang("Joined Date is requierd") . "</li>";
+        $_SESSION["fail"] .= "<li>" . lang("Joined Date is requierd") . "</li>";
         }
       if( empty($cv)){
         $errors[] = "<li>" . lang("CV is requierd") . "</li>";
@@ -206,8 +206,8 @@
                                 </div>
                                 <!-- Form Group (experience_years)-->
                                 <div class="col-md-4 mb-3">
-                                    <label class="small mb-1" for="experience_years"><?php echo lang("Experience Years"); ?></label>
-                                    <input class="form-control" id="experience_years" name="experience_years" type="text" placeholder="<?php echo lang("Experience Years"); ?>"
+                                    <label class="small mb-1" for="experience_years"><?php echo lang("Joined Date"); ?></label>
+                                    <input class="form-control" id="experience_years" name="experience_years" type="text" placeholder="<?php echo lang("Joined Date"); ?>"
                                         value="" required  />
                                 </div>
                                 <!-- Form Group (cv)-->

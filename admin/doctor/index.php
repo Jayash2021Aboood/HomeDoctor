@@ -49,7 +49,7 @@
                             <th><?php echo lang("Location"); ?></th>
                             <th><?php echo lang("Specialty"); ?></th>
                             <th><?php echo lang("Date of Graduate"); ?></th>
-                            <th><?php echo lang("Experience Years"); ?></th>
+                            <th><?php echo lang("Joined Date"); ?></th>
                             <th><?php echo lang("CV"); ?></th>
                             <th><?php echo lang("State"); ?></th>
                             <th><?php echo lang("Actions"); ?></th>
@@ -66,7 +66,7 @@
                                             <th>Location</th>
                                             <th>Specialty</th>
                                             <th>Date of Graduate</th>
-                                            <th>Experience Years</th>
+                                            <th>Joined Date</th>
                                             <th>CV</th>
                                             <th>State</th>
                                             <th>Actions</th>
