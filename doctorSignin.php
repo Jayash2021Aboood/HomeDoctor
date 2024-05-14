@@ -237,10 +237,10 @@
                                         type="date" placeholder="<?php echo lang("Date of Graduate") ?>" value="" required />
                                 </div>
                                 <!-- Form Group (experience_years)-->
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3 d-none">
                                     <label class="small mb-1" for="experience_years"><?php echo lang("Joined Date") ?></label>
                                     <input class="form-control" id="experience_years" name="experience_years"
-                                        type="text" placeholder="<?php echo lang("Joined Date") ?>" value="" required />
+                                        type="text" placeholder="<?php echo lang("Joined Date") ?>" value="<?php echo date('Y-m-d'); ?>" required />
                                 </div>
                                 <!-- Form Group (cv)-->
                                 <div class="col-md-4 mb-3">
