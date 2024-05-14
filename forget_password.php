@@ -166,7 +166,7 @@ if (isset($_SESSION['user']))
                             </div>
                             <!-- Form Group (submit options)-->
                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                <a class="small" href="auth-login-basic.html"><?php echo lang("Return to login"); ?></a>
+                                <a class="small" href="login.php"><?php echo lang("Return to login"); ?></a>
                                 <button class="btn btn-primary" name="forgetPassword"
                                     type="submit"><?php echo lang("Send Password"); ?></button>
                             </div>
